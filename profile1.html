@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CampusNotify - Profile</title>
   <link rel="stylesheet" href="pp.css">
-  <!-- <link rel="stylesheet" href="common.css"> -->
+  <link rel="stylesheet" href="common.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/all.min.css">
   <style>
@@ -14,19 +14,12 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
     }
 
     body {
       background: #f3f4f3;
       color: #333;
-      font-family: 'Inter', sans-serif;
-    }
-
-    /* Ensure Navbar uses Poppins as in contact.html */
-    #navbar,
-    .navbar,
-    .navbar * {
-      font-family: 'Poppins', sans-serif !important;
     }
 
     /* Top Banner */
@@ -275,132 +268,131 @@
   </style>
 </head>
 
-<body>
-  <div id="navbar"></div>
+<div id="navbar"></div>
 
-  <!-- Top Banner / Stats -->
-  <div class="top-banner">
-    <div class="profile-top">
-      <img src="pravallika.jpg" alt="Profile Picture">
-      <div class="profile-info">
-        <div class="profile-name">
-          <h1>Dosapati Pravallika</h1>
+<!-- Top Banner / Stats -->
+<div class="top-banner">
+  <div class="profile-top">
+    <img src="pravallika.jpg" alt="Profile Picture">
+    <div class="profile-info">
+      <div class="profile-name">
+        <h1>Dosapati Pravallika</h1>
+      </div>
+      <p>VIT-AP University | CSE | 3rd Year</p>
+      <div class="stats">
+        <div class="stat">
+          <span>275</span> Points
         </div>
-        <p>VIT-AP University | CSE | 3rd Year</p>
-        <div class="stats">
-          <div class="stat">
-            <span>275</span> Points
+        <div class="stat">
+          <div id="stars">⭐⭐⭐☆☆</div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width:55%;"></div>
           </div>
-          <div class="stat">
-            <div id="stars">⭐⭐⭐☆☆</div>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width:55%;"></div>
-            </div>
-            <small>Only 225 pts to next star ⭐</small>
-          </div>
-          <div class="stat">
-            Level 3
-          </div>
+          <small>Only 225 pts to next star ⭐</small>
+        </div>
+        <div class="stat">
+          Level 3
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Coding Profiles Section -->
-  <div class="coding-profiles">
-    <h2>Coding Profiles</h2>
-    <div class="coding-cards">
-      <div class="coding-card leetcode">
-        <i class="fab fa-code"></i>
-        <h3>LeetCode</h3>
-        <p>450 Problems Solved</p>
+<!-- Coding Profiles Section -->
+<div class="coding-profiles">
+  <h2>Coding Profiles</h2>
+  <div class="coding-cards">
+    <div class="coding-card leetcode">
+      <i class="fab fa-code"></i>
+      <h3>LeetCode</h3>
+      <p>450 Problems Solved</p>
+    </div>
+    <div class="coding-card codechef">
+      <i class="fas fa-star"></i>
+      <h3>CodeChef</h3>
+      <p>1620 Rating</p>
+    </div>
+    <div class="coding-card codeforces">
+      <i class="fas fa-trophy"></i>
+      <h3>Codeforces</h3>
+      <p>1780 Rating</p>
+    </div>
+    <div class="coding-card hackerrank">
+      <i class="fas fa-medal"></i>
+      <h3>HackerRank</h3>
+      <p>12 Badges</p>
+    </div>
+  </div>
+</div>
+
+<!-- Main Content Tabs -->
+<div class="main-content">
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="events">My Events</button>
+    <button class="tab-btn" data-tab="achievements">Achievements</button>
+    <button class="tab-btn" data-tab="skills">Skills & Interests</button>
+  </div>
+
+  <!-- Tab Contents -->
+  <div class="tab-content active" id="events">
+    <div class="event-tabs">
+      <button class="event-tab active">Hackathons</button>
+      <button class="event-tab">Cultural</button>
+      <button class="event-tab">Sports</button>
+      <button class="event-tab">Clubs</button>
+      <button class="event-tab">Internships</button>
+    </div>
+    <div class="events-container">
+      <div class="event-card">
+        <i class="fas fa-laptop-code"></i>
+        <h4>AI Hackathon 2025</h4>
+        <p>Status: Registered</p>
+        <p>Points: 50</p>
       </div>
-      <div class="coding-card codechef">
-        <i class="fas fa-star"></i>
-        <h3>CodeChef</h3>
-        <p>1620 Rating</p>
+      <div class="event-card">
+        <i class="fas fa-robot"></i>
+        <h4>Robotics Hackathon</h4>
+        <p>Status: Completed</p>
+        <p>Points: 100</p>
       </div>
-      <div class="coding-card codeforces">
-        <i class="fas fa-trophy"></i>
-        <h3>Codeforces</h3>
-        <p>1780 Rating</p>
+      <div class="event-card">
+        <i class="fas fa-code"></i>
+        <h4>Coding Marathon</h4>
+        <p>Status: Upcoming</p>
+        <p>Points: 50</p>
       </div>
-      <div class="coding-card hackerrank">
-        <i class="fas fa-medal"></i>
-        <h3>HackerRank</h3>
-        <p>12 Badges</p>
+      <div class="event-card">
+        <i class="fas fa-network-wired"></i>
+        <h4>Networking Hackathon</h4>
+        <p>Status: Registered</p>
+        <p>Points: 50</p>
       </div>
     </div>
   </div>
 
-  <!-- Main Content Tabs -->
-  <div class="main-content">
-    <div class="tabs">
-      <button class="tab-btn active" data-tab="events">My Events</button>
-      <button class="tab-btn" data-tab="achievements">Achievements</button>
-      <button class="tab-btn" data-tab="skills">Skills & Interests</button>
-    </div>
-
-    <!-- Tab Contents -->
-    <div class="tab-content active" id="events">
-      <div class="event-tabs">
-        <button class="event-tab active">Hackathons</button>
-        <button class="event-tab">Cultural</button>
-        <button class="event-tab">Sports</button>
-        <button class="event-tab">Clubs</button>
-        <button class="event-tab">Internships</button>
-      </div>
-      <div class="events-container">
-        <div class="event-card">
-          <i class="fas fa-laptop-code"></i>
-          <h4>AI Hackathon 2025</h4>
-          <p>Status: Registered</p>
-          <p>Points: 50</p>
-        </div>
-        <div class="event-card">
-          <i class="fas fa-robot"></i>
-          <h4>Robotics Hackathon</h4>
-          <p>Status: Completed</p>
-          <p>Points: 100</p>
-        </div>
-        <div class="event-card">
-          <i class="fas fa-code"></i>
-          <h4>Coding Marathon</h4>
-          <p>Status: Upcoming</p>
-          <p>Points: 50</p>
-        </div>
-        <div class="event-card">
-          <i class="fas fa-network-wired"></i>
-          <h4>Networking Hackathon</h4>
-          <p>Status: Registered</p>
-          <p>Points: 50</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="tab-content" id="achievements">
-      <div class="achievements-container">
-        <div class="achievement-card"><i class="fas fa-trophy"></i> Hackathon Winner</div>
-        <div class="achievement-card"><i class="fas fa-medal"></i> Cultural Fest Winner</div>
-        <div class="achievement-card"><i class="fas fa-certificate"></i> Summer Internship Certificate</div>
-        <div class="achievement-card"><i class="fas fa-award"></i> Robotics Trophy</div>
-      </div>
-    </div>
-
-    <div class="tab-content" id="skills">
-      <div class="skills-container">
-        <div class="skill-tag"><i class="fas fa-code"></i> Web Dev</div>
-        <div class="skill-tag"><i class="fas fa-robot"></i> AI/ML</div>
-        <div class="skill-tag"><i class="fas fa-music"></i> Music</div>
-        <div class="skill-tag"><i class="fas fa-futbol"></i> Sports</div>
-        <div class="skill-tag"><i class="fas fa-network-wired"></i> Networking</div>
-        <div class="skill-tag"><i class="fas fa-paint-brush"></i> Design</div>
-      </div>
+  <div class="tab-content" id="achievements">
+    <div class="achievements-container">
+      <div class="achievement-card"><i class="fas fa-trophy"></i> Hackathon Winner</div>
+      <div class="achievement-card"><i class="fas fa-medal"></i> Cultural Fest Winner</div>
+      <div class="achievement-card"><i class="fas fa-certificate"></i> Summer Internship Certificate</div>
+      <div class="achievement-card"><i class="fas fa-award"></i> Robotics Trophy</div>
     </div>
   </div>
 
-  <script src="pp.js"></script>
-  <script src="profile.js"></script>
+  <div class="tab-content" id="skills">
+    <div class="skills-container">
+      <div class="skill-tag"><i class="fas fa-code"></i> Web Dev</div>
+      <div class="skill-tag"><i class="fas fa-robot"></i> AI/ML</div>
+      <div class="skill-tag"><i class="fas fa-music"></i> Music</div>
+      <div class="skill-tag"><i class="fas fa-futbol"></i> Sports</div>
+      <div class="skill-tag"><i class="fas fa-network-wired"></i> Networking</div>
+      <div class="skill-tag"><i class="fas fa-paint-brush"></i> Design</div>
+    </div>
+  </div>
+</div>
+
+<script src="pp.js"></script>
+<script src="profile.js"></script>
 </body>
 
 </html>
