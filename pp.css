@@ -219,8 +219,10 @@ body {
     position: absolute;
     top: 70px;
     right: 0;
-    width: 200px;
+    width: 250px;
     padding: 20px;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
     border-radius: 0 0 0 10px;
     box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.3);
     z-index: 1001;
