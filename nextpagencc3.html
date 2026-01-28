@@ -1,0 +1,240 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rotaract User - Leadership & Community</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Montserrat', sans-serif; background-color:#E4FCEB; min-height:100svh; color:black; }
+    .overlay { padding:40px 20px; color:black; }
+
+    h1,h2 { text-align:center; margin:0; }
+    h1 { font-size:2.5em; margin-bottom:10px; }
+    h2 { font-size:1.3em; font-weight:normal; margin-bottom:20px; }
+
+    #eventCounter {
+      text-align:center;
+      font-size:1.1em;
+      font-weight:bold;
+      margin-bottom:40px;
+      color:#09581d;
+    }
+
+    .card-container { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; max-width:1200px; margin:auto; }
+    .card { background:white; border-radius:16px; padding:20px; width:280px; text-align:center; transition: transform 0.3s ease; }
+    .card:hover { transform:scale(1.05); box-shadow:0 1px 1px black; }
+    .card img { height:100px; width:110px; margin-bottom:15px; }
+    .card h4 { font-size:1.5em; margin:10px 0; }
+    .card p { font-size:0.80em; margin:10px 0 20px; }
+
+    .horizontal-box { display:flex; justify-content:space-between; align-items:center; background:white; padding:20px; margin:20px 80px; border-radius:10px; flex-wrap:wrap; }
+    .box-left { flex:1 1 60%; font-family:'Segoe UI',sans-serif; color:black; }
+    .box-left h3 { margin:0 0 8px 0; color:black; }
+    .box-left p { margin:10px 0; font-size:1em; }
+    .box-left strong { display:block; margin-top:8px; font-weight:bold; }
+    .box-right { flex:1 1 35%; text-align:right; }
+    .box-right button { margin-left:10px; padding:10px 16px; border:none; background-color:#12a838; color:white; border-radius:5px; font-weight:500; cursor:pointer; transition:0.3s; }
+    .box-right button:hover { background-color:#09581d; }
+
+    .quote { margin-top:50px; text-align:center; font-style:italic; font-size:1.2em; }
+
+    /* Popup overlay */
+    .overlay-popup {
+      position: fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      background: rgba(255,255,255,0.95);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    .popup {
+      background:#fff;
+      padding:25px;
+      border-radius:10px;
+      width:400px;
+      position:relative;
+      box-shadow:0 4px 12px rgba(0,0,0,0.2);
+      text-align:left;
+    }
+    .close-btn {
+      position:absolute;
+      top:10px; right:10px;
+      background:white;
+      color:red;
+      border:none;
+      padding:5px 10px;
+      border-radius:50%;
+      cursor:pointer;
+      font-size:28px;
+    }
+    input, select {
+      width:100%;
+      padding:8px;
+      margin:8px 0;
+      border:1px solid #ccc;
+      border-radius:6px;
+    }
+    .submit-btn {
+      background:green;
+      color:white;
+      padding:10px;
+      border:none;
+      width:100%;
+      border-radius:6px;
+      cursor:pointer;
+    }
+    .registered-btn {
+      background: green !important;
+      cursor: not-allowed;
+    }
+
+    @media(max-width:768px){
+      .horizontal-box { flex-direction:column; text-align:center; margin:20px; }
+      .box-right { text-align:center; margin-top:10px; }
+      .box-right button { margin:10px 5px; }
+      .card { width:90%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>Rotaract Club - Aditya University</h1>
+    <h2>Developing Leaders through Service and Action</h2>
+
+    <!-- Counter -->
+    <div id="eventCounter">Applied Events: 0 / Not Applied: 0</div>
+
+    <!-- Static Cards -->
+    <div class="card-container">
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3619/3619515.png" alt="Leadership Icon" />
+        <h4>Leadership Workshops</h4>
+        <p>Equipping youth with communication and leadership skills.</p>
+      </div>
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1995/1995507.png" alt="Cleanup Icon" />
+        <h4>Clean City Drive</h4>
+        <p>Community clean-up efforts to promote hygiene and awareness.</p>
+      </div>
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Innovation Icon" />
+        <h4>Career Mentorship</h4>
+        <p>Connecting students with professionals for guidance and development.</p>
+      </div>
+    </div>
+
+    <!-- Dynamic Events -->
+    <div id="dynamicEvents"></div>
+
+    <div class="quote">“Fellowship Through Service” — Rotaract Motto</div>
+  </div>
+
+  <!-- Popup Form -->
+  <div class="overlay-popup" id="formOverlay">
+    <div class="popup">
+      <button class="close-btn" onclick="closeForm()">×</button>
+      <h2>Register Now</h2>
+      <form id="regForm">
+        <label>Full Name:</label>
+        <input type="text" placeholder="Full Name" required>
+        <label>Email:</label>
+        <input type="email" placeholder="Email" required>
+        <label>Area of Interest:</label>
+        <select required>
+          <option value="">Select</option>
+          <option>Leadership</option>
+          <option>Community Service</option>
+          <option>Mentorship</option>
+        </select>
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    let currentButton = null;
+
+    function updateCounter() {
+      let applied = 0;
+      const events = JSON.parse(localStorage.getItem('rotaractEvents')) || [];
+      const total = events.length;
+
+      events.forEach((_, index) => {
+        if (localStorage.getItem('rotaract-registered-' + index) === 'true') {
+          applied++;
+        }
+      });
+
+      let notApplied = total - applied;
+      document.getElementById('eventCounter').textContent =
+       ' Registered: ${applied} / Not Registered: ${notApplied}';
+    }
+
+    // Load dynamic events
+    function loadEvents() {
+      const container = document.getElementById('dynamicEvents');
+      container.innerHTML = '';
+      const events = JSON.parse(localStorage.getItem('rotaractEvents')) || [];
+      events.forEach((e, index) => {
+        const div = document.createElement('div');
+        div.className = 'horizontal-box';
+        div.innerHTML = `
+          <div class="box-left">
+            <h3>${e.title}</h3>
+            <p>${e.desc}</p>
+            <strong>Last Date: ${e.lastDate}</strong>
+          </div>
+          <div class="box-right">
+            <button onclick="window.open('${e.notice}')">Notice</button>
+            <button id="regBtn-${index}" onclick="openForm(this)">Register</button>
+          </div>
+        `;
+        container.appendChild(div);
+
+        // If already registered
+        if (localStorage.getItem('rotaract-registered-' + index) === 'true') {
+          const btn = div.querySelector('#regBtn-${index}');
+          btn.textContent = "Registered";
+          btn.disabled = true;
+          btn.classList.add("registered-btn");
+        }
+      });
+      updateCounter();
+    }
+
+    // Popup handlers
+    function openForm(button) {
+      currentButton = button;
+      document.getElementById("formOverlay").style.display = "flex";
+    }
+    function closeForm() {
+      document.getElementById("formOverlay").style.display = "none";
+    }
+
+    // Handle form submit
+    document.getElementById("regForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      if (currentButton) {
+        currentButton.textContent = "Registered";
+        currentButton.disabled = true;
+        currentButton.classList.add("registered-btn");
+
+        // Save status
+        const btnId = currentButton.id.split('-')[1];
+        localStorage.setItem('rotaract-registered-' + btnId, 'true');
+        updateCounter();
+      }
+      closeForm();
+      alert("Registration submitted successfully!");
+    });
+
+    window.onload = loadEvents;
+  </script>
+</body>
+</html>

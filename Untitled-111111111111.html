@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio | D. Pravallika</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: rgb(27, 27, 27);
+      color: #ebedf1;
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Floating background dots */
+    .background {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .dot {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: white;
+      border-radius: 50%;
+      animation: floatUp 12s linear infinite;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+
+    /* Container style */
+    .container { width: 90%; max-width: 1000px; margin: 0 auto; padding: 40px 0; }
+
+    header {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-size: 32px;
+      font-weight: bold;
+      color: #c2cadd;
+    }
+    nav a {
+      margin-left: 20px;
+      font-size: 16px;
+      text-transform: uppercase;
+      position: relative;
+      color: #ffffff;
+      font-weight: 500;
+    }
+    nav a::after {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 0;
+      background: #747ad4;
+      transition: width .3s ease;
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero / About */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+      padding-top: 60px;
+      padding-bottom: 80px;
+    }
+    .hero .intro {
+      flex: 1 1 400px;
+    }
+    .hero .intro h2 {
+      font-size: 42px;
+      margin-bottom: 16px;
+      font-weight: 700;
+      color: #1e3a8a;
+    }
+    .hero .intro p {
+      font-size: 18px;
+      color: #ffffff;
+      margin-bottom: 24px;
+    }
+    .hero .intro .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 8px;
+      background: #6366f1;
+      color: #f3e7e7;
+      font-weight: 600;
+      transition: transform .3s ease, background .3s ease;
+    }
+    .hero .intro .btn:hover {
+      background: #4f46e5;
+      transform: scale(1.05);
+    }
+
+    .hero .profile {
+      flex: 0 0 300px;
+      text-align: center;
+    }
+    .hero .profile img {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #f3ecec;
+      box-shadow: 0 6px 16px rgba(255, 255, 255, 0.15);
+    }
+    .hero .profile h3 {
+      margin-top: 16px;
+      font-size: 24px;
+      font-weight: 600;
+      color: #f1f3f7;
+    }
+    .hero .profile p {
+      margin-top: 6px;
+      color: #f1f3f7;
+      font-size: 16px;
+    }
+
+    /* Sections */
+    .section {
+      padding: 60px 0;
+    }
+    .section h2 {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 24px;
+      border-left: 5px solid #6366f1;
+      padding-left: 10px;
+      color: #1e3a8a;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    /* Education + Projects cards updated to match certification style */
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 10px 25px rgba(89, 113, 122, 0.5);
+      background: #0f172a;
+    }
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: #61bee6;
+    }
+    .card p {
+      color: #d1d5db;
+      font-size: 16px;
+    }
+
+    /* Skills tags */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .skills span {
+      border: 1px solid #6366f1;
+      color: #4338ca;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+      background: #eef2ff;
+      transition: background .3s ease, transform .3s ease;
+    }
+    .skills span:hover {
+      background: #c7d2fe;
+      transform: scale(1.05);
+    }
+
+    /* Certification Section (adjusted for better layout) */
+    .certifications {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      justify-items: center;
+      margin-top: 20px;
+      padding: 0 20px;
+    }
+    .cert-card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+      transition: transform .3s ease, background .3s ease, box-shadow .3s ease;
+      width: 100%;
+      max-width: 300px;
+      text-align: center;
+    }
+    .cert-card h3 {
+      color: #93c5fd;
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+    .cert-card a {
+      display: inline-block;
+      margin-top: 8px;
+      background: #38bdf8;
+      color: #0f172a;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background .3s ease, transform .3s ease;
+    }
+    .cert-card:hover {
+      background: #0f172a;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.5);
+    }
+    .cert-card a:hover {
+      background: #0ea5e9;
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      color: #ffffff;
+      border-top: 1px solid #e2e8f0;
+      font-size: 14px;
+    }
+
+    /* Reveal animations */
+    .hidden {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Animated Background -->
+  <div class="background" id="bg"></div>
+
+  <header class="container">
+    <h1>Pravallika</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero container" id="about">
+    <div class="intro hidden">
+      <h2>Hi, I'm Pravallika</h2>
+      <p>Frontend Developer & Problem Solver passionate about learning, building and delivering clean & impactful web solutions.</p>
+      <a class="btn" href="#projects">Connect with me</a>
+    </div>
+    <div class="profile hidden">
+      <img src="23A91A1214.png" alt="Profile Photo">
+      <h3>Pravallika D</h3>
+      <p>Rajamahendravaram, Andhra Pradesh</p>
+      <p>dosapatipravallika9@gmail.com</p>
+    </div>
+  </section>
+
+  <section class="section container" id="education">
+    <h2 class="hidden">Education</h2>
+    <div class="card-grid">
+      <div class="card hidden">
+        <h3>B.Tech - Aditya University</h3>
+        <p>Surampalem (2023-2027)</p>
+        <p>CGPA: 8.60 / 10</p>
+      </div>
+      <div class="card hidden">
+        <h3>Intermediate - Rajamahendri College</h3>
+        <p>Rajamundry (2021-2023)</p>
+        <p>Percentage: 90.7%</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container" id="projects">
+    <h2 class="hidden">Projects</h2>
+    <div class="card-grid">
+      <div class="card hidden">
+        <h3>YouNique Care</h3>
+        <p>Developed a responsive front-end interface to help students check health and BMI.</p>
+      </div>
+      <div class="card hidden">
+        <h3>CampusNotify</h3>
+        <p>Centralized event notifications for students, improved engagement.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container" id="skills">
+    <h2 class="hidden">Skills</h2>
+    <div class="skills hidden">
+      <span>Java</span><span>Python</span><span>C</span><span>HTML</span>
+      <span>CSS</span><span>Bootstrap</span><span>JavaScript</span><span>SQL</span>
+    </div>
+  </section>
+
+  <!-- Adjusted Certification Section -->
+  <section class="section container" id="certifications">
+    <h2>Certifications</h2>
+    <div class="certifications">
+      <div class="cert-card">
+        <h3>Oracle Certified-Java</h3>
+        <a href="./oracle_learner.pdf" target="_blank">View Certificate</a>
+      </div>
+      <div class="cert-card">
+        <h3>Operating System | Cisco</h3>
+        <a href="./23a91a1214.PDF" target="_blank">View Certificate</a>
+      </div>
+      <div class="cert-card">
+        <h3>Red Hat Sys Admin I & II</h3>
+        <a href="LINK_TO_CERTIFICATE_3" target="_blank">View Certificate</a>
+      </div>
+      <div class="cert-card">
+        <h3>Intro to Python Programming</h3>
+        <a href="LINK_TO_CERTIFICATE_4" target="_blank">View Certificate</a>
+      </div>
+      <div class="cert-card">
+        <h3>IT Specialist HTML/CSS</h3>
+        <a href="LINK_TO_CERTIFICATE_5" target="_blank">View Certificate</a>
+      </div>
+      <div class="cert-card">
+        <h3>Cisco Python Essential</h3>
+        <a href="LINK_TO_CERTIFICATE_6" target="_blank">View Certificate</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container" id="contact">
+    <h2 class="hidden">Contact Me</h2>
+    <p class="hidden">📞 +91-9032007547 | ✉️ dosapatipravallika9@gmail.com</p>
+    <div class="hidden">
+      <a href="https://www.linkedin.com/in/pravallika-dosapati-85a7a6293/">LinkedIn</a> |
+      <a href="https://github.com/A91A1214">GitHub</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Pravallika</p>
+  </footer>
+
+<script>
+  // Scroll reveal
+  const hiddenElems = document.querySelectorAll('.hidden');
+  function revealOnScroll() {
+    const triggerBottom = window.innerHeight * 0.85;
+    hiddenElems.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < triggerBottom) el.classList.add('show');
+    });
+  }
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', revealOnScroll);
+
+  // Floating dots
+  const bg = document.getElementById('bg');
+  for (let i = 0; i < 30; i++) {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    dot.style.left = Math.random() * 100 + "vw";
+    dot.style.animationDuration = (6 + Math.random() * 10) + "s";
+    dot.style.animationDelay = Math.random() * 5 + "s";
+    bg.appendChild(dot);
+  }
+</script>
+
+</body>
+</html>

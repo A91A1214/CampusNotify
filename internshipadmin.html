@@ -1,0 +1,96 @@
+<html>
+<head>
+  
+  <title>Admin - Add Internship</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f6fc;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .form-container {
+      background-color: #ffffff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    .form-container input {
+      width: 100%;
+      padding: 10px 14px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 12px;
+      background-color: #215a5c;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    .form-container button:hover {
+      background-color: #1a4b4d;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Add Internship</h2>
+    <form id="internshipForm" onsubmit="fun2(event)">
+      <input type="text" id="role" placeholder="Role" required>
+      <input type="text" id="company" placeholder="Company Name" required>
+      <input type="text" id="location" placeholder="Location" required>
+      <input type="text" id="duration" placeholder="Duration" required>
+      <input type="text" id="stipend" placeholder="Stipend" required>
+      <input type="url" id="applyLink" placeholder="Apply Link" required>
+      <input type="url" id="logoURL" placeholder="Company Logo URL" required>
+      <button type="submit">Add Internship</button>
+    </form>
+  </div>
+
+  <script>
+      function fun2(event) {
+      event.preventDefault(); 
+     const internship = {
+        role: document.getElementById("role").value,
+        company: document.getElementById("company").value,
+        location: document.getElementById("location").value,
+        duration: document.getElementById("duration").value,
+        stipend: document.getElementById("stipend").value,
+        applyLink: document.getElementById("applyLink").value,
+        logoURL: document.getElementById("logoURL").value
+      };
+
+      let internships = JSON.parse(localStorage.getItem("internships")) || [];
+      internships.push(internship);
+      localStorage.setItem("internships", JSON.stringify(internships));
+
+      alert("Internship added successfully!");
+      document.getElementById("internshipForm").reset();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  
+}
+  
+body{
+  height: 100svh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  background: url("https://assets.simpleviewinc.com/sv-crystalcoastnc/image/upload/c_fill,h_675,q_75,w_1200/v1/cms_resources/clients/crystalcoastnc/VirtualZoomBackgrounds_1920x1080_NoLogo_01_8ab4aaa3-d570-48c6-a3d1-ad89156a7210.jpg") ;
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.box {
+  background: rgba(27, 115, 150, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px; 
+  padding: 40px 30px;
+   
+  width: 400px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+.box h1{
+     color: white;
+       margin-bottom: 30px;
+}
+.box h2 {
+  margin-bottom: 30px;
+  color: white;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border-bottom: 1px solid white;
+  margin-bottom: 25px;
+  padding: 5px 10px;
+}
+
+.input-group i {
+  color: white;
+  margin-right: 10px;
+}
+
+.input-group input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  width: 100%;
+  font-size: 16px;
+}
+
+::placeholder {
+  color: white;
+
+}
+
+button {
+  background-color: white;
+  color: #333;
+  padding: 12px 0;
+  width: 100%;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2d73d6;
+  color:white;
+}
+
+.signin {
+  margin-top: 20px;
+  font-size: 14px;
+  color: white;
+}
+
+.signin a {
+  color: white;
+  text-decoration: underline;
+}

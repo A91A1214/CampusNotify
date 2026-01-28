@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hackathons page</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="hackathon.css" />
+    <link rel="stylesheet" href="pp-d.css" />
+
+</head>
+<body>
+  <div id="navbar"></div>
+  <!--<div class="navbar">
+    <div class="logo">CampusNotify</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Opportunities</a>
+      <a href="#">Clubs</a>
+      <a href="./Hackathon.html">Hackathons</a>
+    </div>
+  </div>-->
+  <div>
+    <img src="hackimg.jpg" alt="image" width="100%" height="500px"/> 
+  </div>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="🔍 Search by hackathon name or description" onkeyup="filterHackathons()" />
+  </div>
+  <div id="noResults" style="text-align:center; color: red; font-weight: bold; display: none;margin:30px;">
+  No  results found.
+  </div>
+  <div class="totalcards">
+    <div class="card">
+        <img src="./hackrx.jpg" alt="image" width="100%" height="200px"/>
+        <h3>HackRx 6.0</h3>
+        <p><i class="fa-solid fa-building-circle-check"></i> <b>Company:</b> Bajaj Finserv Health Limited<br/><b><i class="fa-solid fa-people-group"></i> Team Size:</b> 2 - 5 Members</p>
+        <p><b>Registration Start:</b> 23-07-2025<br/><b>Registration End:</b> 09-08-2025</p>
+        <a href="https://unstop.com/hackathons/hackrx-60-bajaj-finserv-1514382?ref=TPO"><button class="Registrationbutton" type="submit">Register <i class="fa-solid fa-arrow-right"></i></button></a>
+        <button class="deleteBtn" style="margin: 10px; background-color: crimson; color: white; padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer;">
+        Delete
+        </button>
+    </div>
+    <div class="card">
+        <img src="./loreal.jpg" alt="image" width="100%" height="200px"/>
+        <h3>L'Oréal Sustainability Challenge 2025</h3>
+        <p><i class="fa-solid fa-building-circle-check"></i> <b>Company:</b> L'Oréal<br/><b><i class="fa-solid fa-people-group"></i> Team Size:</b> 3 Members</p>
+        <p><b>Registration Start:</b> 26-07-2025<br/><b>Registration End:</b> 11-08-2025</p>
+        <a href="https://unstop.com/competitions/loreal-sustainability-challenge-2025-loreal-1504673?ref=TPO"><button class="Registrationbutton" type="submit">Register <i class="fa-solid fa-arrow-right"></i></button></a>
+        <button class="deleteBtn" style="margin: 10px; background-color: crimson; color: white; padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer;">
+        Delete
+        </button>
+    </div>
+    <div class="card">
+        <img src="./cyfuture.jpg" alt="image" width="100%" height="200px"/>
+        <h3>Cyfuture AI Hackathon 1.0</h3>
+        <p><i class="fa-solid fa-building-circle-check"></i> <b>Company:</b> Cyfuture India<br/><b><i class="fa-solid fa-people-group"></i> Team Size:</b> 2 - 5 Members</p>
+        <p><b>Registration Start:</b> 3-07-2025<br/><b>Registration End:</b> 12-08-2025</p>
+        <a href="https://unstop.com/hackathons?oppstatus=open&domain=2&usertype=students&searchTerm=cyfuture"><button class="Registrationbutton" type="submit">Register <i class="fa-solid fa-arrow-right"></i></button></a>
+        <button class="deleteBtn" style="margin: 10px; background-color: crimson; color: white; padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer;">
+        Delete
+        </button>
+    </div>
+    <div class="card">
+        <img src="./ANDI.jpg" alt="image" width="100%" height="200px"/>
+        <h3>ANDi Software Solutions Hackathon</h3>
+        <p><i class="fa-solid fa-building-circle-check"></i> <b>Company:</b> ANDi Software Solutions <br/><b><i class="fa-solid fa-people-group"></i> Team Size:</b> Individual Participation</p>
+        <p><b>Registration Start:</b> 05-07-2025<br/><b>Registration End:</b> 31-08-2025</p>
+        <a href="https://unstop.com/hackathons/ultimate-coding-showdown-andi-software-solutions-hackathon-andi-software-solutions-1512943"><button class="Registrationbutton" type="submit">Register <i class="fa-solid fa-arrow-right"></i></button></a>
+        <button class="deleteBtn" style="margin: 10px; background-color: crimson; color: white; padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer;">
+        Delete
+        </button>
+    </div>
+    <div class="card">
+        <img src="./hackloop.jpg" alt="image" width="100%" height="200px"/>
+        <h3>HackLoop 2025</h3>
+        <p><i class="fa-solid fa-building-circle-check"></i> <b>Company:</b> Dr. APJ Abdul Kalam University <br/><b><i class="fa-solid fa-people-group"></i> Team Size:</b> 2 - 4 Members</p>
+        <p><b>Registration Start:</b> 25-07-2025<br/><b>Registration End:</b> 18-08-2025</p>
+        <a href="https://unstop.com/hackathons/hackloop-2025-dr-apj-abdul-kalam-technical-university-1528453"><button class="Registrationbutton" type="submit">Register <i class="fa-solid fa-arrow-right"></i></button></a>
+        <button class="deleteBtn" style="margin: 10px; background-color: crimson; color: white; padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer;">
+        Delete
+        </button>
+    </div>
+    <div class="card">
+        <img src="./technova.jpg" alt="image" width="100%" height="200px"/>
+        <h3>TechNova: Igniting Brilliance</h3>
+        <p><i class="fa-solid fa-building-circle-check"></i> <b>Company:</b> Enterprise System <br/><b><i class="fa-solid fa-people-group"></i> Team Size:</b> 1 - 3 Members</p>
+        <p><b>Registration Start:</b> 24-07-2025<br/><b>Registration End:</b> 09-08-2025</p>
+        <a href="https://unstop.com/hackathons/technova-igniting-brilliance-season-2-enterprise-system-solutions-private-limited-1516154"><button class="Registrationbutton" type="submit">Register <i class="fa-solid fa-arrow-right"></i></button></a>
+        <button class="deleteBtn" style="margin: 10px; background-color: crimson; color: white; padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer;">
+        Delete
+        </button>
+    </div>
+  </div>
+  <script>
+     function toggleMenu() {
+      const navList = document.querySelector(".links ul");
+      navList.classList.toggle("active");
+    }
+
+  function filterHackathons() {
+    const input = document.getElementById("searchInput").value.toLowerCase();
+    const cards = document.getElementsByClassName("card");
+    const noResults = document.getElementById("noResults");
+
+    let anyVisible = false;
+
+    for (let i = 0; i < cards.length; i++) {
+      const title = cards[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+      const description = cards[i].getElementsByTagName("p")[0].innerText.toLowerCase();
+
+      if (title.includes(input) || description.includes(input)) {
+        cards[i].style.display = "";
+        anyVisible = true;
+      } else {
+        cards[i].style.display = "none";
+      }
+    }
+
+    // Show "No Results" message if nothing is visible
+    noResults.style.display = anyVisible ? "none" : "block";
+  }
+  
+  const container = document.querySelector('.totalcards');
+
+  let hackathons = JSON.parse(localStorage.getItem("hackathons")) || [];
+
+  function renderHackathons() {
+    // Clear dynamic cards (not hardcoded)
+    document.querySelectorAll('.card[data-dynamic="true"]').forEach(card => card.remove());
+
+    hackathons.forEach((hack, index) => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.setAttribute("data-dynamic", "true"); // mark dynamic cards
+
+      card.innerHTML = `
+        <img src="${hack.image}" alt="Hackathon Image" width="100%" height="200px"/>
+        <h3>${hack.title}</h3>
+        <p><i class="fa-solid fa-building-circle-check"></i> <b>Company:</b> ${hack.company}<br/>
+        <b><i class="fa-solid fa-people-group"></i> Team Size:</b> ${hack.teamSize}</p>
+        <p><b>Registration Start:</b> ${hack.startDate}<br/>
+        <b>Registration End:</b> ${hack.endDate}</p>
+        <a href="${hack.link}" target="_blank">
+          <button class="Registrationbutton" type="submit">
+            Register <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </a>
+        <button class="deleteBtn" data-index="${index}" style="margin: 10px; background-color: crimson; color: white; padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer;">
+          Delete
+        </button>
+      `;
+
+      // Delete handler
+      card.querySelector(".deleteBtn").addEventListener("click", () => {
+        if (confirm("Delete this hackathon?")) {
+          hackathons.splice(index, 1);
+          localStorage.setItem("hackathons", JSON.stringify(hackathons));
+          renderHackathons();
+        }
+      });
+
+      container.appendChild(card);
+    });
+  }
+
+  // Delete handler for hardcoded cards
+  function setupHardcodedDeletions() {
+    document.querySelectorAll('.card:not([data-dynamic]) .deleteBtn').forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (confirm("Delete this hardcoded hackathon?")) {
+          btn.closest(".card").remove();
+        }
+      });
+    });
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    renderHackathons();
+    setupHardcodedDeletions();
+  });
+</script>
+<script>
+    function toggleMenu() {
+      const navList = document.querySelector(".links ul");
+      navList.classList.toggle("active");
+    }
+  </script>
+    <script src="pp-d.js"></script>
+        <script src="profile-d.js"></script>
+
+</body>
+</html>

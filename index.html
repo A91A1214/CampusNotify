@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | CampusNotify</title>
+  <link rel="stylesheet" href="iship.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/all.min.css">
+</head>
+
+<body>
+
+  <div class="main">
+    <div class="navbar">
+      <div class="logopart">
+        <img src="nani-removebg-preview (1).png" class="icon" alt="Campus Logo">
+        <span class="logo-text">Campus Notify</span>
+
+      </div>
+      <div class="links">
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="hackathon.html">Hackathons</a></li>
+          <li><a href="internshipuser.html">Internships</a></li>
+          <li><a href="Technicalevents.html">Tech Events</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="conatct.html">Contact</a></li>
+          <li class="mobile-only"><a href="login.html">Login</a></li>
+          <li class="mobile-only"><a href="signup.html">Signup</a></li>
+        </ul>
+      </div>
+
+      <div class="login">
+        <a href="login.html" class="btn">Login</a>
+        <a href="signup.html" class="btn">Signup</a>
+      </div>
+    </div>
+
+
+    <section class="hero11">
+      <div class="hero-content11">
+        <h1>🌟 Discover. Engage. Achieve. <br> All in One Place.</h1>
+        <p>Stay updated with internships, hackathons, cultural & technical events, sports, and clubs – all in one
+          platform.</p>
+        <a href="#events" class="btn11">🚀 Explore Now</a>
+      </div>
+      <div class="hero-image11">
+        <img src="ni.jpg" alt="Campus Illustration">
+      </div>
+    </section>
+
+    <section class="ss" id="events">
+      <h1 class="cat-underline">Categories</h1>
+
+      <div class="categories">
+        <div class="g1" onclick="location.href='hackathon.html'" style="cursor: pointer;">Hackathons</div>
+        <div class="g2" onclick="location.href='internshipuser.html'" style="cursor: pointer;">Internships</div>
+        <div class="g3" onclick="location.href='Technicalevents.html'" style="cursor: pointer;">Tech Events</div>
+        <div class="g4" onclick="location.href='culturalsuser.html'" style="cursor: pointer;">Cultural Events</div>
+        <div class="g5" style="cursor: pointer;">Workshops</div>
+        <div class="g6" style="cursor: pointer;">Club Activities</div>
+        <div class="g7" onclick="location.href='outdoor.html'" style="cursor: pointer;">Outdoor Sports</div>
+        <div class="g8" onclick="location.href='indoor.html'" style="cursor: pointer;">Indoor Sports</div>
+      </div>
+    </section>
+
+    <div class="aboutsection">
+      <div class="image1"><img src="iship.jpg" alt="About CampusNotify"></div>
+      <div class="about-campusnotify">
+        <p class="section-label">ABOUT US</p>
+        <h2 class="main-heading">
+          Discover & Grow with <span>CampusNotify</span>
+        </h2>
+        <div class="underline"></div>
+
+        <p class="about-description">
+          CampusNotify is your all-in-one platform to explore campus opportunities — from
+          <strong>hackathons</strong> and <strong>internships</strong> to <strong>cultural fests</strong> and
+          <strong>club activities</strong>. Whether you're just starting out or looking to expand your portfolio,
+          CampusNotify keeps you connected, informed, and engaged with your college community.
+        </p>
+        <ul class="highlights">
+          <li>🎯 Stay Updated on Events & Opportunities</li>
+          <li>🤝 Connect with Clubs and Communities</li>
+          <li>📩 Direct Registration and Contact Info</li>
+        </ul>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section about">
+          <h3>CampusNotify</h3>
+          <p>CampusNotify is your go-to portal for hackathons, internships, workshops, and all campus events.</p>
+        </div>
+
+        <div class="footer-section links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hackathon.html">Events</a></li>
+            <li><a href="internshipuser.html">Internships</a></li>
+            <li><a href="nss.html">Clubs</a></li>
+            <li><a href="conatct.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section contact">
+          <h4>Contact</h4>
+          <p>Email: contact@campusnotify.in</p>
+          <p>Phone: ‪‪+91 12345 67890‬‬</p>
+        </div>
+
+        <div class="footer-section social">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="#"><img src="linkedin.jpg" alt="Instagram" /> Instagram</a>
+            <a href="#"><img src="./github.jpg" alt="LinkedIn" /> LinkedIn</a>
+            <a href="#"><img src="instagram.jpg" alt="GitHub" /> GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 CampusNotify. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const navList = document.querySelector(".links ul");
+      navList.classList.toggle("active");
+    }
+  </script>
+
+</body>
+
+</html>

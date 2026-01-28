@@ -1,0 +1,245 @@
+/* common.css - Global Styles for CampusNotify */
+:root {
+  --primary-color: #003c3c;
+  --secondary-color: #28a745;
+  --accent-color: #FFD700;
+  --text-white: #ffffff;
+  --bg-light: #f4f7f6;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #E4FCEB;
+  color: #022253;
+  overflow-x: hidden;
+}
+
+/* --- Original Navbar Styles --- */
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #003c3c;
+  padding: 10px 20px;
+  color: white;
+  width: 100%;
+}
+
+.logopart {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon {
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.logo-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-left: -40px;
+}
+
+.links ul {
+  list-style: none;
+  display: flex;
+  gap: 35px;
+}
+
+.links ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.links ul li a:hover {
+  color: #FFD700;
+}
+
+/* 🔔 Notification Styles */
+.notification {
+  position: relative;
+  margin-left: 20px;
+  font-size: 26px;
+  cursor: pointer;
+  color: white;
+}
+
+.notification .badge {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  padding: 4px 6px;
+  border-radius: 100%;
+  background: red;
+  color: white;
+  font-size: 10px;
+}
+
+.notification-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 40px;
+  background: #0f2222;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  min-width: 220px;
+  z-index: 2000;
+}
+
+.notification:hover .notification-dropdown {
+  display: block;
+}
+
+.notification-item {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: white;
+  border-bottom: 1px solid #2e5252;
+}
+
+.notification-item:last-child {
+  border-bottom: none;
+}
+
+.notification-item:hover {
+  background: #2dd3bf33;
+}
+
+/* 👤 Profile Menu */
+.profile-menu {
+  position: relative;
+  margin-left: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 54px;
+  background: #0f2222;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px #00ffe144;
+  min-width: 180px;
+  z-index: 2000;
+}
+
+.profile-menu.open .profile-dropdown {
+  display: block;
+}
+
+.profile-dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 22px;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+
+.profile-dropdown-item:hover {
+  background: #2dd3bf33;
+  color: #f8f8f8;
+}
+
+/* Hamburger for Mobile */
+.hamburger {
+  display: none;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+}
+
+/* --- Responsive Navbar --- */
+@media (max-width: 1000px) {
+  .links ul {
+    display: none;
+    flex-direction: column;
+    background-color: #003c3c;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  .links ul.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* --- Footer Styles --- */
+.global-footer {
+  background: #222;
+  color: #ddd;
+  padding: 50px 10% 20px;
+  margin-top: 50px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.footer-section h4 {
+  color: var(--accent-color);
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section a {
+  color: #bbb;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.footer-section a:hover {
+  color: var(--text-white);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #444;
+  font-size: 0.9rem;
+}

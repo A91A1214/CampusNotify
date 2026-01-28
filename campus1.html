@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CampusNotify - Events</title>
+    <link rel="stylesheet" href="pp.css" />
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'poppins';
+      overflow-x: hidden;
+    }
+
+    /* === Header === */
+    .header {
+            padding-top: 100px;
+      text-align: center;
+      padding: 50px 20px;
+      font-size: 34px;
+      font-weight: bold;
+      color: #044204;   
+      /* text-shadow: 0 0 10px #466646; */
+       }
+
+    /* === Cards with Flip === */
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 60px;
+      padding: 60px 30px;
+    }
+
+    .flip-card {
+background-color: rgb(255, 253, 253); 
+     width: 280px;
+      height: 360px;
+      perspective: 1000px;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0, 255, 225, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .card-front img {
+      height: 100px;
+      margin-bottom: 20px;
+    }
+
+    .card-front h3 {
+      font-size: 22px;
+      color: #000000;
+      margin-bottom: 10px;
+    }
+
+    .card-front p {
+      font-size: 14px;
+      color: #1f1e1e;
+      line-height: 1.4;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card-back h3 {
+      color: black;
+      margin-bottom: 20px;
+    }
+
+    .card-back button {
+      background-color:  #0c6e25;
+      border: 2px solid #40b6a8;
+      color:black;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .card-back button:hover {
+      background: #0a550d;
+      color: rgb(247, 235, 235);
+      box-shadow: 0 0 10px #58bdb1;
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar"></div>
+
+  
+  <!-- Header -->
+  <div class="header">Cultural and Technical Events Registration</div>
+
+  <!-- Content Cards -->
+  <div class="container">
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="card-front">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEmDtAFwNCg_RhsAK2DqJbVPRp4X7DlNS49Q&s" alt="Cultural Events">
+          <h3>Cultural Events</h3>
+          <p>Unleash your creativity through music,<br>dance, drama and more vibrant showcases.</p>
+        </div>
+        <div class="card-back">
+          <h3>Ready to join?</h3>
+          <a href="culturalsuser.html"><button>Register</button></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="card-front">
+          <img src="https://cdn-icons-png.flaticon.com/512/1688/1688400.png" alt="Technical Events">
+          <h3>Technical Events</h3>
+          <p>Challenge your intellect with coding,<br>robotics, quizzes and project expos.</p>
+        </div>
+        <div class="card-back">
+          <h3>Ready to compete?</h3>
+          <a href="Technicalevents.html"><button>Register</button></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+  <script>
+    function toggleMenu() {
+      const navList = document.querySelector(".links ul");
+      navList.classList.toggle("active");
+    }
+  </script>
+    <script src="pp.js"></script>
+        <script src="profile.js"></script>
+
+
+  
+</body>
+</html>

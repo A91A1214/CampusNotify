@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="pp-d.css" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+  <title>Contact Us</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #ecf0f1;
+      color: #1c1c1c;
+    }
+     .contact-info h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #1e3c72;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #16a085;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+.contact-info h1 {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+   
+
+
+    /* CONTACT SECTION */
+    .contact-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 30px; 
+      border-radius: 15px;
+      gap: 40px;
+      background: #ffffff;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      animation: fadeInUp 0.9s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card {
+      width: 100%;
+    }
+
+    .contact-info h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    .contact-info p {
+      font-size: 16px;
+      margin: 12px 0;
+      line-height: 1.6;
+    }
+
+    .contact-form h2 {
+      font-size: 26px;
+      margin-bottom: 20px;
+      color: #04488d;
+    }
+
+    label {
+      display: block;
+      margin: 12px 0 5px;
+      font-weight: 600;
+    }
+
+    input,
+    textarea {
+      width: 80%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      background-color: #f9f9f9;
+      transition: background-color 0.3s, border 0.3s;
+    }
+
+    input:hover,
+    textarea:hover {
+      background-color: #f1f1f1;
+      border: 1px solid #16a085;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #04641c;
+      color: #fff;
+      border: none;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .card {
+  width: 100%;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.contact-info {
+   background-color:transparent;
+  color: #fff;
+}
+
+.contact-info h1,
+.contact-info p,
+.contact-info h3 {
+  color:black;
+}
+
+.contact-form {
+ 
+  border: 2px solid #e0e0e0;
+   background: linear-gradient(135deg, #79959e, #566e8b);
+}
+
+
+    button:hover {
+      background-color: #023805;
+    }
+
+    @media (max-width: 768px) {
+
+      .contact-container {
+        flex-direction: column;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar"></div>
+
+
+  <!-- Contact Section -->
+  <div class="contact-container">
+    <!-- Contact Info -->
+    <div class="card contact-info">
+      <h1>Contact Us</h1>
+      <p><strong>Email:</strong> support@campusnotify.in</p>
+      <p><strong>Phone:</strong> +91 98765 43210</p>
+      <p><strong>Address:</strong> Aditya Engineering College</p>
+      <h3 style="color:#2c3e50">We’re here to assist you with any issues or feedback. Feel free to reach out!</h3>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="card contact-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your Name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="enter your email" />
+
+        <label for="issue">Issue You Are Facing</label>
+        <textarea id="issue" name="issue" placeholder="Describe the problem you're facing..." required></textarea>
+
+        <label for="suggestion">Suggestion Box</label>
+        <textarea id="suggestion" name="suggestion" placeholder="We value your suggestions..."></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const navList = document.querySelector(".links ul");
+      navList.classList.toggle("active");
+    }
+  </script>
+    <script src="pp-d.js"></script>
+        <script src="profile-d.js"></script>
+
+
+
+</body>
+</html>
+-

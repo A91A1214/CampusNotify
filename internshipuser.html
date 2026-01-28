@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internships | CampusNotify</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="internshipuser.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/all.min.css">
+</head>
+
+<body>
+  <div id="navbar"></div>
+  <h2 style="text-align: center; margin-top: 40px; color: var(--primary-color);">Latest Internships</h2>
+  <div class="quote-box">
+    <p class="quote-text">Every internship is a step toward your future</p>
+  </div>
+
+  <div class="internship-grid">
+    <!-- Internships will be injected via JS -->
+  </div>
+
+  <script>
+    window.onload = function () {
+      const defaultInternships = [
+        {
+          role: "Software Engineering Intern",
+          company: "Google",
+          location: "Bangalore (Remote)",
+          duration: "6 Months",
+          stipend: "₹50,000/mo",
+          logoURL: "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png",
+          applyLink: "#"
+        },
+        {
+          role: "Web Developer Intern",
+          company: "Microsoft",
+          location: "Hyderabad",
+          duration: "3 Months",
+          stipend: "₹45,000/mo",
+          logoURL: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+          applyLink: "#"
+        },
+        {
+          role: "Data Science Intern",
+          company: "Amazon",
+          location: "Chennai",
+          duration: "6 Months",
+          stipend: "₹40,000/mo",
+          logoURL: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+          applyLink: "#"
+        },
+        {
+          role: "Full Stack Developer",
+          company: "Meta",
+          location: "Mumbai",
+          duration: "4 Months",
+          stipend: "₹60,000/mo",
+          logoURL: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg",
+          applyLink: "#"
+        }
+      ];
+
+      const storedInternships = JSON.parse(localStorage.getItem("internships")) || [];
+      const internships = storedInternships.length > 0 ? storedInternships : defaultInternships;
+      const grid = document.querySelector(".internship-grid");
+
+      internships.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "internship-card";
+
+        card.innerHTML = `
+                    <div class="banner-wrap">
+                        <img src="https://www.naukri.com/campus/career-guidance/wp-content/uploads/2023/10/internship-resume.jpg" class="banner-img" alt="Internship Banner">
+                    </div>
+                    <div class="company-logo-box">
+                        <img src="${item.logoURL}" alt="${item.company} Logo" class="company-logo">
+                    </div>
+                    <h3>${item.role}</h3>
+                    <p><i class="fas fa-building"></i><strong>Company:</strong> ${item.company}</p>
+                    <p><i class="fas fa-map-marker-alt"></i><strong>Location:</strong> ${item.location}</p>
+                    <p><i class="fas fa-clock"></i><strong>Duration:</strong> ${item.duration}</p>
+                    <p><i class="fas fa-money-bill-wave"></i><strong>Stipend:</strong> ${item.stipend}</p>
+                    <a href="${item.applyLink}" class="apply-btn">Apply Now</a>
+                `;
+        grid.appendChild(card);
+      });
+    };
+  </script>
+   <script>
+    function toggleMenu() {
+      const navList = document.querySelector(".links ul");
+      navList.classList.toggle("active");
+    }
+  </script>
+  <script src="pp.js"></script>
+  <script src="profile.js"></script>
+</body>
+
+</html>

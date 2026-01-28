@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cultural Events</title>
+      <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+       font-family: 'poppins';
+      background-color: #E4FCEB;
+      padding: 30px;
+      color: #fff;
+    }
+
+    h1 {
+      text-align: center;
+      color: #750851;
+      text-shadow: 0 0 10px #6e7cac;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+    }
+
+    .search {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    #searchInput {
+      padding: 12px 20px;
+      width: 80%;
+      max-width: 500px;
+      border-radius: 30px;
+      border: 1px solid black;
+      outline: none;
+      font-size: 16px;
+      backdrop-filter: blur(10px);
+      transition: 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 255, 225, 0.2);
+    }
+    .search input::placeholder {
+      color: #797878;
+    }
+
+    .event-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .Event {
+      width: 90%;
+      max-width: 1000px;
+      background: white;
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeSlideUp 0.8s forwards;
+    }
+
+    .Event:nth-child(1) { animation-delay: 0.1s; }
+    .Event:nth-child(2) { animation-delay: 0.3s; }
+    .Event:nth-child(3) { animation-delay: 0.5s; }
+    .Event:nth-child(4) { animation-delay: 0.7s; }
+    .Event:nth-child(5) { animation-delay: 0.9s; }
+    .Event:nth-child(6) { animation-delay: 1.1s; }
+    .Event:nth-child(7) { animation-delay: 1.3s; }
+
+    @keyframes fadeSlideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .Event:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 25px rgba(24, 197, 68, 0.3);
+    }
+
+    .event-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .event-title {
+      font-size: 22px;
+      font-weight: 600;
+      color: black;
+      /* text-shadow: 0 0 5px #409e93; */
+      margin-bottom: 6px;
+    }
+
+    .notice {
+      font-style: italic;
+      color: #f38888;
+      font-size: 14px;
+    }
+
+    .btn-container {
+      display: flex;
+      gap: 10px;
+    }
+
+    .register-btn, .notice-btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .register-btn {
+       background-color: #12a838;
+      color: black;
+      border: 1px solid #2effd3;
+    }
+
+    .register-btn:hover {
+       background-color:  #11802c;
+      color: rgb(0, 0, 0);
+      box-shadow: 0 0 15px #2effd3;
+    }
+
+    .notice-btn {
+      background-color: #12a838;
+      color: black;
+      border: 1px solid #2effd3;
+    }
+
+    .notice-btn:hover {
+      background-color:  #11802c;
+      color: rgb(0, 0, 0);
+      box-shadow: 0 0 15px #2effd3;
+    }
+
+    a.back {
+      display: block;
+      text-align: center;
+      margin-top: 40px;
+      color:#130f0f;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    a.back:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cultural Events</h1>
+
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="🔍 Search by event name" onkeyup="filterevents()" />
+  </div>
+
+  <div class="event-wrapper">
+    <!-- Events here -->
+      <div class="Event">
+      <div class="event-info">
+        <div class="event-title">Dance Battle</div>
+        <div class="notice">Last Date: Aug 30</div>
+      </div>
+      <div class="btn-container">
+        <a href="./notice.pdf.pdf" target="_blank"><button class="notice-btn">Notice</button></a>
+        <a href="https://forms.office.com/r/vWejGk2zef" target="_blank"><button class="register-btn">Register</button></a>
+      </div>
+    </div>
+
+    <div class="Event">
+      <div class="event-info">
+        <div class="event-title">Drama Contest</div>
+        <div class="notice">Last Date: Sept 5</div>
+      </div>
+      <div class="btn-container">
+        <a href="./notice.pdf" target="_blank"><button class="notice-btn">Notice</button></a>
+        <a href="https://forms.office.com/" target="_blank"><button class="register-btn">Register</button></a>
+      </div>
+    </div>
+
+    <div class="Event">
+      <div class="event-info">
+        <div class="event-title">Music Mania</div>
+        <div class="notice">Last Date: Sept 10</div>
+      </div>
+      <div class="btn-container">
+        <a href="./notice.pdf" target="_blank"><button class="notice-btn">Notice</button></a>
+        <a href="https://forms.office.com/" target="_blank"><button class="register-btn">Register</button></a>
+      </div>
+    </div>
+
+    <div class="Event">
+      <div class="event-info">
+        <div class="event-title">Art Exhibition</div>
+        <div class="notice">Last Date: Sept 15</div>
+      </div>
+      <div class="btn-container">
+        <a href="./notice.pdf" target="_blank"><button class="notice-btn">Notice</button></a>
+        <a href="https://forms.office.com/" target="_blank"><button class="register-btn">Register</button></a>
+      </div>
+    </div>
+
+    <div class="Event">
+      <div class="event-info">
+        <div class="event-title">Fashion Show</div>
+        <div class="notice">Last Date: Sept 20</div>
+      </div>
+      <div class="btn-container">
+        <a href="./notice.pdf.pdf" target="_blank"><button class="notice-btn">Notice</button></a>
+        <a href="https://forms.office.com/" target="_blank"><button class="register-btn">Register</button></a>
+      </div>
+    </div>
+
+    <div class="Event">
+      <div class="event-info">
+        <div class="event-title">Singing Duel</div>
+        <div class="notice">Last Date: Sept 25</div>
+      </div>
+      <div class="btn-container">
+        <a href="./notice.pdf" target="_blank"><button class="notice-btn">Notice</button></a>
+        <a href="https://forms.office.com/" target="_blank"><button class="register-btn">Register</button></a>
+      </div>
+    </div>
+
+    <div class="Event">
+      <div class="event-info">
+        <div class="event-title">Meme Making</div>
+        <div class="notice">Last Date: Sept 30</div>
+      </div>
+      <div class="btn-container">
+        <a href="./notice.pdf" target="_blank"><button class="notice-btn">Notice</button></a>
+        <a href="https://forms.office.com/" target="_blank"><button class="register-btn">Register</button></a>
+      </div>
+    </div>
+  </div>
+
+  <a class="back" href="campus1.html">← Back to Home</a>
+
+  <script>
+    function filterevents() {
+      const input = document.getElementById("searchInput");
+      const filter = input.value.toLowerCase();
+      const cards = document.getElementsByClassName("Event");
+
+      for (let i = 0; i < cards.length; i++) {
+        const title = cards[i].getElementsByClassName("event-title")[0].innerText.toLowerCase();
+        const description = cards[i].getElementsByClassName("notice")[0].innerText.toLowerCase();
+
+        if (title.includes(filter) || description.includes(filter)) {
+          cards[i].style.display = "";
+        } else {
+          cards[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NSS - User</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #E4FCEB;
+      min-height: 100svh;
+      color: #070707;
+    }
+    .overlay-page { color: black; padding: 40px 20px; }
+    h1, h2 { text-align: center; margin: 0; }
+    h1 { font-size: 2.5em; margin-bottom: 10px; }
+    h2 { font-size: 1.3em; font-weight: normal; margin-bottom: 20px; }
+
+    /* Counter */
+    #eventCounter {
+      text-align: center;
+      font-size: 1.1em;
+      font-weight: bold;
+      margin-bottom: 40px;
+      color: #09581d;
+    }
+
+    .card-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1200px; margin: auto; }
+    .card { background: white; border-radius: 16px; padding: 20px; width: 320px; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; color: black; }
+    .card:hover { transform: scale(1.05); box-shadow: 0 1px 1px black; }
+    .card img { height: 100px; width: 80px; margin-bottom: 15px; border-radius: 8px; }
+    .card h4 { font-size: 1.5em; margin: 10px 0; }
+    .card p { font-size: 0.85em; margin: 10px 0 20px; }
+
+    .horizontal-box { display: flex; justify-content: space-between; align-items: center; background: white; color: black; padding: 20px; margin: 20px 80px; box-shadow: 0 6px 15px rgba(0,0,0,0.2); border-radius: 10px; flex-wrap: wrap; position: relative; }
+    .box-left { flex: 1 1 60%; font-family: 'Segoe UI', sans-serif; color: black; }
+    .box-left h3 { margin: 0 0 8px 0; color: black; }
+    .box-left p { margin: 10px 0; font-size: 1em; }
+    .box-left strong { display: block; margin-top: 8px; font-weight: bold; }
+    .box-right { flex: 1 1 35%; text-align: right; }
+    .box-right button { margin-left: 10px; padding: 10px 16px; border: none; background-color: #12a838; color: white; border-radius: 5px; font-weight: 500; cursor: pointer; transition: background-color 0.3s ease; }
+    .box-right button:hover { background-color: #09581d; }
+
+    .quote { margin-top: 50px; text-align: center; font-style: italic; font-size: 1.2em; color: #0c0c0c; }
+
+    /* Popup overlay */
+    .overlay-popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(255,255,255,0.95);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .popup {
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      width: 400px;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      text-align: left;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: white;
+      color: red;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 28px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .submit-btn {
+      background: green;
+      color: white;
+      padding: 10px;
+      border: none;
+      width: 100%;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .registered-btn {
+      background: green !important;
+      cursor: not-allowed;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2em; }
+      .card { width: 90%; }
+      .horizontal-box { flex-direction: column; text-align: center; margin: 20px; }
+      .box-right { text-align: center; margin-top: 10px; }
+      .box-right button { margin: 10px 5px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay-page">
+    <h1>NSS at Aditya University</h1>
+    <h2>Serving the nation through social responsibility</h2>
+
+    <!-- Applied Events Counter -->
+    <div id="eventCounter">Applied Events: 0 / Not Applied: 0</div>
+
+    <div class="card-container">
+      <div class="card">
+        <img src="red5.jpg" alt="Blood Donation Icon">
+        <h4>Blood Donation</h4>
+        <p>Voluntary blood donation drives organized regularly with local hospitals.</p>
+      </div>
+
+      <div class="card">
+        <img src="red4.jpg" alt="Orphanage Visit Icon">
+        <h4>Orphanages & Old Age Homes</h4>
+        <p>Spreading care and compassion through visits and contributions.</p>
+      </div>
+
+      <div class="card">
+        <img src="red3.jpg" alt="Tree Plantation Icon">
+        <h4>Tree Plantation Drives</h4>
+        <p>Greening the campus and communities with sustainable initiatives.</p>
+      </div>
+    </div>
+
+    <div id="dynamicEvents"></div>
+
+    <div class="quote">
+      “Not Me But You” — NSS Motto
+    </div>
+  </div>
+
+  <!-- Popup Form -->
+  <div class="overlay-popup" id="formOverlay">
+    <div class="popup">
+      <button class="close-btn" onclick="closeForm()">×</button>
+      <h2>Register Now</h2>
+      <form id="regForm">
+        <label>Full Name:</label>
+        <input type="text" placeholder="Full Name" required>
+        <label>Email</label>
+        <input type="email" placeholder="Email" required>
+
+        <label>Campus</label>
+        <select required>
+          <option value="">Select Campus</option>
+          <option>AEC</option>
+          <option>ACOE</option>
+          <option>ACET</option>
+        </select>
+
+        <label>Branch</label>
+        <select required>
+          <option value="">Select Branch</option>
+          <option>CSE</option>
+          <option>IT</option>
+          <option>ECE</option>
+          <option>EEE</option>
+          <option>MECH</option>
+          <option>CIVIL</option>
+          <option>DS</option>
+          <option>AIML</option>
+        </select>
+
+        <label>Category</label>
+        <select required>
+          <option value="">Select Category</option>
+          <option>Sports</option>
+          <option>Events</option>
+          <option>Hackathons</option>
+          <option>Internships</option>
+          <option>Clubs</option>
+        </select>
+
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    let currentButton = null;
+
+    function updateCounter() {
+      let applied = 0;
+      const events = JSON.parse(localStorage.getItem('nssEvents')) || [];
+      const total = events.length;
+
+      events.forEach((_, index) => {
+        if (localStorage.getItem('registered-' + index) === 'true') {
+          applied++;
+        }
+      });
+
+      let notApplied = total - applied;
+      document.getElementById('eventCounter').textContent =
+        'Registered: ${applied} / Not Registered: ${notApplied}';
+    }
+
+    // Load dynamic events
+    function loadEvents() {
+      const container = document.getElementById('dynamicEvents');
+      container.innerHTML = '';
+      const events = JSON.parse(localStorage.getItem('nssEvents')) || [];
+      events.forEach((e, index) => {
+        const div = document.createElement('div');
+        div.className = 'horizontal-box';
+        div.innerHTML = `
+          <div class="box-left">
+            <h3>${e.title}</h3>
+            <p>${e.desc}</p>
+            <strong>Last Date: ${e.lastDate}</strong>
+          </div>
+          <div class="box-right">
+            <button onclick="window.open('${e.notice}')">Notice</button>
+            <button id="regBtn-${index}" onclick="openForm(this)">Register</button>
+          </div>
+        `;
+        container.appendChild(div);
+
+        // If already registered, keep button green
+        if (localStorage.getItem('registered-' + index) === 'true') {
+          const btn = div.querySelector('#regBtn-${index}');
+          btn.textContent = "Registered";
+          btn.disabled = true;
+          btn.classList.add("registered-btn");
+        }
+      });
+      updateCounter();
+    }
+
+    // Popup handlers
+    function openForm(button) {
+      currentButton = button;
+      document.getElementById("formOverlay").style.display = "flex";
+    }
+    function closeForm() {
+      document.getElementById("formOverlay").style.display = "none";
+    }
+
+    // Handle form submit
+    document.getElementById("regForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      if (currentButton) {
+        currentButton.textContent = "Registered";
+        currentButton.disabled = true;
+        currentButton.classList.add("registered-btn");
+
+        // Save status in localStorage
+        const btnId = currentButton.id.split('-')[1];
+        localStorage.setItem('registered-' + btnId, 'true');
+        updateCounter();
+      }
+      closeForm();
+      alert("Registration submitted successfully!");
+    });
+
+    window.onload = loadEvents;
+  </script>
+</body>
+</html>

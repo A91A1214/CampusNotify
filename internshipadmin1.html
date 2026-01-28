@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Internships</title>
+  <link rel="stylesheet" href="internshipuser.css"/>
+  <!-- <link rel="stylesheet" href=".pp-d.css" /> -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script>
+    function toggleMenu() {
+      const navList = document.getElementById("navList");
+      navList.classList.toggle("show");
+    }
+
+    function toggleDropdown(element) {
+      if (window.innerWidth <= 1000) {
+        element.classList.toggle("open");
+      }
+    }
+  
+ 
+    window.onload = function () {
+  const internships = JSON.parse(localStorage.getItem("internships")) || [];
+  const grid = document.querySelector(".internship-grid");
+
+
+
+
+  for (let i = 0; i < internships.length; i++) {
+    const item = internships[i];
+    const card = document.createElement("div");
+    card.className = "internship-card";
+
+    const bannerWrap = document.createElement("div");
+    bannerWrap.className = "banner-wrap";
+
+const deleteBtn = document.createElement("span");
+deleteBtn.innerHTML = "&times;";
+deleteBtn.className = "delete-btn";
+deleteBtn.onclick = function () {
+  const internships = JSON.parse(localStorage.getItem("internships")) || [];
+  internships.splice(i, 1); 
+  localStorage.setItem("internships", JSON.stringify(internships));
+  card.remove(); 
+};
+card.appendChild(deleteBtn);
+
+
+
+
+    const bannerImg = document.createElement("img");
+    bannerImg.src = "https://www.naukri.com/campus/career-guidance/wp-content/uploads/2023/10/internship-resume.jpg";
+    bannerImg.className = "banner-img";
+    bannerImg.alt = "Internship Banner";
+    bannerWrap.appendChild(bannerImg);
+    card.appendChild(bannerWrap);
+
+    const logoBox = document.createElement("div");
+    logoBox.className = "company-logo-box";
+
+    const logoImg = document.createElement("img");
+    logoImg.src = item.logoURL;
+    logoImg.alt = item.company + " Logo";
+    logoImg.className = "company-logo";
+    logoBox.appendChild(logoImg);
+    card.appendChild(logoBox);
+
+    const roleHeading = document.createElement("h3");
+    roleHeading.textContent = item.role;
+    card.appendChild(roleHeading);
+
+    const companyP = document.createElement("p");
+    companyP.innerHTML = '<i class="fas fa-building"></i><strong>Company:</strong> ' + item.company;
+    card.appendChild(companyP);
+
+    const locationP = document.createElement("p");
+    locationP.innerHTML = '<i class="fas fa-map-marker-alt"></i><strong>Location:</strong> ' + item.location;
+    card.appendChild(locationP);
+
+    const durationP = document.createElement("p");
+    durationP.innerHTML = '<i class="fas fa-clock"></i><strong>Duration:</strong> ' + item.duration;
+    card.appendChild(durationP);
+
+    const stipendP = document.createElement("p");
+    stipendP.innerHTML = '<i class="fas fa-money-bill-wave"></i><strong>Stipend:</strong> ' + item.stipend;
+    card.appendChild(stipendP);
+
+    const applyLink = document.createElement("a");
+    applyLink.href = item.applyLink;
+    applyLink.className = "apply-btn";
+    applyLink.textContent = "Apply Now";
+    card.appendChild(applyLink);
+
+    grid.appendChild(card);
+  }
+};
+  </script>
+ <style>
+ .internship-header-wrapper {
+  position: relative;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.internship-header-wrapper h2 {
+  font-size: 28px;
+  color: #2c3e50;
+  margin: 0;
+}
+
+
+
+</style>
+
+</head>
+<body>
+
+  <div id="navbar"></div>
+
+  
+<div class="internship-header-wrapper">
+  <h2>Latest Internships</h2>
+  <div class="form-container">
+    <button><a href="internshipadmin.html">Add Internship</a></button>
+  </div>
+</div>
+
+<div class="quote-box">
+  <p class="quote-text">Every internship is a step toward your future</p>
+</div>
+
+<div class="internship-grid"></div>
+ <script>
+    function toggleMenu() {
+      const navList = document.querySelector(".links ul");
+      navList.classList.toggle("active");
+    }
+  </script>
+    <script src="pp-d.css"></script>
+        <script src="profile-d.js"></script>
+
+  
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile | CampusNotify</title>
+    <link rel="stylesheet" href="common.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/all.min.css">
+    <style>
+        .edit-profile-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .edit-header {
+            border-bottom: 2px solid var(--bg-light);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+        }
+
+        .edit-header h1 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .save-btn {
+            background: var(--secondary-color);
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .save-btn:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+
+        .profile-pic-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-pic-preview {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--bg-light);
+            margin-bottom: 15px;
+        }
+
+        .upload-link {
+            display: block;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .edit-profile-container {
+                padding: 20px;
+                margin: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+      <div id="navbar"></div>
+    <!-- <div id="navbar-placeholder"></div> -->
+
+    <div class="edit-profile-container">
+        <div class="edit-header">
+            <h1>Edit Your Profile</h1>
+        </div>
+
+        <div class="profile-pic-section">
+            <img src="pravallika.jpg" alt="Profile" class="profile-pic-preview" id="pic-preview">
+            <a href="#" class="upload-link">Change Profile Picture</a>
+        </div>
+
+        <form id="edit-profile-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" value="Dosapati Pravallika" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label>College ID</label>
+                    <input type="text" value="23A91A1214" placeholder="College ID">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Bio</label>
+                <textarea rows="4" placeholder="Tell us about yourself...">Enthusiastic student developer looking for opportunities to grow and contribute to the tech community.</textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Skills</label>
+                    <input type="text" value="C++, HTML, CSS, Javascript" placeholder="e.g. Java, Python, React">
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" value="pravallika@campusnotify.in" placeholder="Email">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>LinkedIn URL</label>
+                    <input type="url" placeholder="https://linkedin.com/in/yourprofile">
+                </div>
+                <div class="form-group">
+                    <label>GitHub URL</label>
+                    <input type="url" placeholder="https://github.com/yourusername">
+                </div>
+            </div>
+
+            <button type="submit" class="save-btn">Save Changes</button>
+        </form>
+    </div>
+
+    <!-- <script src="common.js"></script> -->
+    <script>
+        document.getElementById('edit-profile-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Profile updated successfully!');
+            window.location.href = 'profile1.html';
+        });
+    </script>
+    <script>
+    function toggleMenu() {
+      const navList = document.querySelector(".links ul");
+      navList.classList.toggle("active");
+    }
+  </script>
+  <script src="pp.js"></script>
+  <script src="profile.js"></script>
+</body>
+</html>

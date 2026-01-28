@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home</title>
+  <link rel="stylesheet" href="pp-d.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #E4FCEB;
+      color: #022253;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #003c3c;
+      padding: 10px 20px;
+      color: white;
+      width: 100%;
+    }
+
+    .logopart {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .icon {
+      height: 70px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .logo-text {
+      font-size: 15px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-left: -40px;
+    }
+
+    .links ul {
+      list-style: none;
+      display: flex;
+      gap: 35px;
+    }
+    .links ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      font-size: 16px;
+    }
+    .links ul li a:hover { color: #FFD700; }
+
+    /* 🔔 Notification Styles */
+    .notification {
+      position: relative;
+      margin-left: 20px;
+      font-size: 26px;
+      cursor: pointer;
+    }
+    .notification .badge {
+      position: absolute;
+      top: -5px;
+      right: -8px;
+      padding: 4px 6px;
+      border-radius: 100%;
+      background: red;
+      color: white;
+      font-size: 10px;
+    }
+    .notification-dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 40px;
+      background: #0f2222;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      min-width: 220px;
+      z-index: 2000;
+    }
+    .notification:hover .notification-dropdown {
+      display: block;
+    }
+    .notification-item {
+      padding: 12px 16px;
+      font-size: 14px;
+      color: white;
+      border-bottom: 1px solid #2e5252;
+    }
+    .notification-item:last-child {
+      border-bottom: none;
+    }
+    .notification-item:hover {
+      background: #2dd3bf33;
+    }
+
+    .profile-menu {
+      position: relative;
+      margin-left: 20px;
+      font-size: 30px;
+      cursor: pointer;
+    }
+    .profile-dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 54px;
+      background: #0f2222;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px #00ffe144;
+      min-width: 180px;
+      z-index: 2000;
+    }
+    .profile-menu.open .profile-dropdown { display: block; }
+    .profile-dropdown-item {
+      display: flex;
+      align-items: center;
+      padding: 12px 22px;
+      color: #fff;
+      font-size: 15px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: left;
+    }
+    .profile-dropdown-item:hover {
+      background: #2dd3bf33;
+      color: #f8f8f8;
+    }
+
+    @media (max-width: 1000px) {
+      .links ul {
+        display: none;
+        flex-direction: column;
+        background-color: #003c3c;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 15px;
+        border-radius: 8px;
+      }
+      .links ul.active { display: flex; }
+      .hamburger { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="logopart">
+      <img src="nani-removebg-preview (1).png" class="icon" alt="Campus Logo">
+      <span class="logo-text">Campus Notify</span>
+    </div>
+    <div style="display: flex; align-items: center;">
+      <div class="links">
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <ul>
+          <li><a href="duplicate.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#">Opportunities</a>
+            <div class="dropdown-content">
+              <a href="hackathon-d.html">Hackathons</a>
+              <a href="internshipadmin1.html">Internships</a>
+              <a href="campus1-d.html">Events</a>
+              <a href="sport-d.html">Sports</a>
+            </div>
+          </li>
+          <li><a href="nss-d.html">Communities</a></li>
+          <li><a href="about-d.html">About Us</a></li>
+          <li><a href="conatct-d.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- 🔔 Notification Bell -->
+      <div class="notification">
+        <i class="fa-regular fa-bell"></i>
+        <span class="badge">3</span>
+        <div class="notification-dropdown">
+          <div class="notification-item">🎉 New Hackathon: Code Sprint</div>
+          <div class="notification-item">📢 Internship Deadline Extended</div>
+          <div class="notification-item">🎭 Cultural Fest Announced</div>
+        </div>
+      </div>
+
+      <!-- 👤 Profile -->
+      <div class="profile-menu" id="profileMenu">
+        <i id="profileIcon" class="fa-regular fa-circle-user"></i>
+        <div class="profile-dropdown" id="profileDropdown">
+         <button class="profile-dropdown-item">
+              <a href="profile1-d.html" style="text-decoration: none; color: white;"> My Profile</a></button>
+          <button class="profile-dropdown-item"> Edit Profile</button>
+          <button class="profile-dropdown-item"> 
+                        <a href="leaderboard-d.html" style="text-decoration: none; color: white;">
+Leaderboard</a></button>
+          <button class="profile-dropdown-item">
+            <a href="ishi.html" style="text-decoration: none; color: white;"> Logout</a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  function toggleMenu() {
+    const navList = document.querySelector(".links ul");
+    navList.classList.toggle("active");
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,460 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NCC Wings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  <style>
+    /* --- Your Original CSS --- */
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #E4FCEB;
+      color: white;
+      min-height: 100vh;
+    }
+    .overlay { padding: 40px 20px; position: relative; }
+    h2, h4 { text-align: center; margin: 0; color: #070707; }
+    h2 { font-size: 2.0em; margin-bottom: 10px; }
+    h4 { font-size: 1.2em; font-weight: normal; margin-bottom: 40px; }
+    .card-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1100px; margin: auto; }
+    .card { background: white; border-radius: 16px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); padding: 20px; width: 280px; text-align: center; color: #000000; transition: transform 0.3s ease; }
+    .card:hover { transform: scale(1.05); }
+    .card img { height: 160px; margin-bottom: 15px; border-radius: 8px; }
+    .card h3 { font-size: 1.3em; margin: 10px 0; }
+    .card p { font-size: 0.85em; margin: 10px 0 20px; }
+    .horizontal-box { display: flex; justify-content: space-between; align-items: center; background: white; padding: 20px; margin: 20px 80px; border-radius: 10px; box-shadow: 0 6px 15px rgba(0,0,0,0.2); flex-wrap: wrap; color: #131313; transition: transform 0.3s ease; position: relative; }
+    .box-left { flex: 1 1 60%; }
+    .box-left h3 { margin: 0 0 8px 0; color: #000000; }
+    .box-right { flex: 1 1 35%; text-align: right; }
+    .box-right button { margin-left: 10px; padding: 10px 16px; border: none; background-color: #12a838; color: white; border-radius: 6px; font-weight: 500; cursor: pointer; transition: background-color 0.3s ease; }
+    .quote { margin-top: 50px; text-align: center; font-style: italic; font-size: 1.2em; color: #0c0c0c; }
+    @media (max-width: 768px) { .horizontal-box { flex-direction: column; margin: 20px; } }
+
+    /* --- New Form & Buttons --- */
+    .add-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      padding: 10px 16px;
+      background-color: #12a838;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .form-popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      width: 300px;
+      z-index: 10;
+      color: black;
+    }
+    .form-popup input {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .form-popup button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 6px;
+      background: #12a838;
+      color: white;
+      cursor: pointer;
+    }
+    .close-btn {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      font-size: 20px;
+      cursor: pointer;
+      color: red;
+    }
+    .delete-event {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <button class="add-btn" onclick="openForm()">+ Add Event</button>
+
+    <h2>The NCC is the youth wing of the Indian Armed Forces.</h2>
+    <h4>Explore the three wings of NCC and their roles.</h4>
+
+ 
+    <div class="card-container">
+      <div class="card">
+        <img src="armyyy.jpg" alt="Army Logo">
+        <h3>Army</h3>
+        <p>Trains cadets in militancy, weapons handling, and leadership skills.</p>
+      </div>
+      <div class="card">
+        <img src="navy.jpg" alt="Navy Logo">
+        <h3>Navy</h3>
+        <p>Focuses on naval training, maritime skills, and naval administrative practices.</p>
+      </div>
+      <div class="card">
+        <img src="air2.jpg" alt="Air Force Logo">
+        <h3>Air Force</h3>
+        <p>Provides training in aeromodelling, aviation and air force operations.</p>
+      </div>
+    </div>
+
+    
+    <div id="dynamicEvents"></div>
+
+   
+    <div class="horizontal-box">
+      <div class="box-left">
+        <h3>Air Wing Registration</h3>
+        <p>Take flight and lead with honor.</p>
+        <strong>Last Date: Aug 10</strong>
+      </div>
+      <div class="box-right">
+        <button onclick="window.open('notice.pdf')">Notice</button>
+        <button onclick="window.open('https://forms.office.com/r/vWejGk2zef')">Register</button>
+      </div>
+    </div>
+
+    <div class="quote">
+      Unity and Discipline – The backbone of the nation.
+    </div>
+  </div>
+
+  <div class="form-popup" id="eventForm">
+    <span class="close-btn" onclick="closeForm()">×</span>
+    <h3>Add Event</h3>
+    <input type="text" id="title" placeholder="Event Title" required>
+    <input type="text" id="desc" placeholder="Description" required>
+    <input type="text" id="lastDate" placeholder="Last Date" required>
+    <input type="url" id="notice" placeholder="Notice Link" required>
+    <input type="url" id="formLink" placeholder="Register Link" required>
+    <button onclick="addEvent()">Save Event</button>
+  </div>
+
+  <script>
+    function loadEvents() {
+      const container = document.getElementById('dynamicEvents');
+      container.innerHTML = '';
+      const events = JSON.parse(localStorage.getItem('nccEvents')) || [];
+      events.forEach((e, index) => {
+        const div = document.createElement('div');
+        div.className = 'horizontal-box';
+        div.innerHTML = `
+          <button class="delete-event" onclick="deleteEvent(${index})">×</button>
+          <div class="box-left">
+            <h3>${e.title}</h3>
+            <p>${e.desc}</p>
+            <strong>Last Date: ${e.lastDate}</strong>
+          </div>
+          <div class="box-right">
+            <button onclick="window.open('${e.notice}')">Notice</button>
+            <button onclick="window.open('${e.form}')">Register</button>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function openForm() {
+      document.getElementById('eventForm').style.display = 'block';
+    }
+
+    function closeForm() {
+      document.getElementById('eventForm').style.display = 'none';
+    }
+
+    function addEvent() {
+      const title = document.getElementById('title').value;
+      const desc = document.getElementById('desc').value;
+      const lastDate = document.getElementById('lastDate').value;
+      const notice = document.getElementById('notice').value;
+      const form = document.getElementById('formLink').value;
+
+      if (!title || !desc || !lastDate || !notice || !form) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      const events = JSON.parse(localStorage.getItem('nccEvents')) || [];
+      events.push({ title, desc, lastDate, notice, form });
+      localStorage.setItem('nccEvents', JSON.stringify(events));
+
+      closeForm();
+      loadEvents();
+      alert("Event added successfully!");
+    }
+
+    function deleteEvent(index) {
+      const events = JSON.parse(localStorage.getItem('nccEvents')) || [];
+      events.splice(index, 1);
+      localStorage.setItem('nccEvents', JSON.stringify(events));
+      loadEvents();
+      alert("Event deleted successfully!");
+    }
+
+    window.onload = loadEvents;
+  </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NCC Wings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  <style>
+    /* --- Original NCC CSS --- */
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #E4FCEB;
+      color: white;
+      min-height: 100vh;
+    }
+    .overlay { padding: 40px 20px; position: relative; }
+    h2, h4 { text-align: center; margin: 0; color: #070707; }
+    h2 { font-size: 2.0em; margin-bottom: 10px; }
+    h4 { font-size: 1.2em; font-weight: normal; margin-bottom: 40px; }
+    .card-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1100px; margin: auto; }
+    .card { background: white; border-radius: 16px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); padding: 20px; width: 280px; text-align: center; color: #000000; transition: transform 0.3s ease; }
+    .card:hover { transform: scale(1.05); }
+    .card img { height: 160px; margin-bottom: 15px; border-radius: 8px; }
+    .card h3 { font-size: 1.3em; margin: 10px 0; }
+    .card p { font-size: 0.85em; margin: 10px 0 20px; }
+    .horizontal-box { display: flex; justify-content: space-between; align-items: center; background: white; padding: 20px; margin: 20px 80px; border-radius: 10px; box-shadow: 0 6px 15px rgba(0,0,0,0.2); flex-wrap: wrap; color: #131313; transition: transform 0.3s ease; position: relative; }
+    .box-left { flex: 1 1 60%; }
+    .box-left h3 { margin: 0 0 8px 0; color: #000000; }
+    .box-right { flex: 1 1 35%; text-align: right; }
+    .box-right button { margin-left: 10px; padding: 10px 16px; border: none; background-color: #12a838; color: white; border-radius: 6px; font-weight: 500; cursor: pointer; transition: background-color 0.3s ease; }
+    .quote { margin-top: 50px; text-align: center; font-style: italic; font-size: 1.2em; color: #0c0c0c; }
+    @media (max-width: 768px) { .horizontal-box { flex-direction: column; margin: 20px; } }
+
+    /* --- Form Overlay --- */
+    .form-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: white; /* White background when form opens */
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    .form-popup {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      width: 500px;
+      position: relative;
+      color: black;
+    }
+    .form-popup input {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .form-popup button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 6px;
+      background: #12a838;
+      color: white;
+      cursor: pointer;
+    }
+    .close-btn {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      font-size: 20px;
+      cursor: pointer;
+      color: red;
+    }
+    .delete-event {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgb(255, 255, 255);
+      color: red;
+      border: none;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* Add Event Button */
+    .add-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      padding: 10px 16px;
+      background-color: #12a838;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <button class="add-btn" onclick="openForm()">+ Add Event</button>
+
+    <h2>The NCC is the youth wing of the Indian Armed Forces.</h2>
+    <h4>Explore the three wings of NCC and their roles.</h4>
+
+    <!-- Static Cards -->
+    <div class="card-container">
+      <div class="card">
+        <img src="red15.jpg" alt="Army Logo">
+        <h3>Army</h3>
+        <p>Trains cadets in militancy, weapons handling, and leadership skills.</p>
+      </div>
+      <div class="card">
+        <img src="red7.jpg" alt="Navy Logo">
+        <h3>Navy</h3>
+        <p>Focuses on naval training, maritime skills, and naval administrative practices.</p>
+      </div>
+      <div class="card">
+        <img src="red8.jpg" alt="Air Force Logo">
+        <h3>Air Force</h3>
+        <p>Provides training in aeromodelling, aviation and air force operations.</p>
+      </div>
+    </div>
+
+    <!-- Dynamic Events -->
+    <div id="dynamicEvents"></div>
+
+    <!-- Static Horizontal Boxes -->
+    <div class="horizontal-box">
+      <div class="box-left">
+        <h3>Air Wing Registration</h3>
+        <p>Take flight and lead with honor.</p>
+        <strong>Last Date: Aug 10</strong>
+      </div>
+      <div class="box-right">
+        <button onclick="window.open('notice.pdf')">Notice</button>
+        <button onclick="window.open('https://forms.office.com/r/vWejGk2zef')">Register</button>
+      </div>
+    </div>
+
+    <div class="quote">
+      Unity and Discipline – The backbone of the nation.
+    </div>
+  </div>
+
+  <!-- Form Overlay -->
+  <div class="form-overlay" id="formOverlay">
+    <div class="form-popup">
+      <span class="close-btn" onclick="closeForm()">×</span>
+      <h3>Add Event</h3>
+      <input type="text" id="title" placeholder="Event Title" required>
+      <input type="text" id="desc" placeholder="Description" required>
+      <input type="text" id="lastDate" placeholder="Last Date" required>
+      <input type="url" id="notice" placeholder="Notice Link" required>
+      <input type="url" id="formLink" placeholder="Register Link" required>
+      <button onclick="addEvent()">Save Event</button>
+    </div>
+  </div>
+
+  <script>
+    function loadEvents() {
+      const container = document.getElementById('dynamicEvents');
+      container.innerHTML = '';
+      const events = JSON.parse(localStorage.getItem('nccEvents')) || [];
+      events.forEach((e, index) => {
+        const div = document.createElement('div');
+        div.className = 'horizontal-box';
+        div.innerHTML = `
+          <button class="delete-event" onclick="deleteEvent(${index})">×</button>
+          <div class="box-left">
+            <h3>${e.title}</h3>
+            <p>${e.desc}</p>
+            <strong>Last Date: ${e.lastDate}</strong>
+          </div>
+          <div class="box-right">
+            <button onclick="window.open('${e.notice}')">Notice</button>
+            <button onclick="window.open('${e.form}')">Register</button>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function openForm() {
+      document.getElementById('formOverlay').style.display = 'flex';
+    }
+
+    function closeForm() {
+      document.getElementById('formOverlay').style.display = 'none';
+    }
+
+    function addEvent() {
+      const title = document.getElementById('title').value.trim();
+      const desc = document.getElementById('desc').value.trim();
+      const lastDate = document.getElementById('lastDate').value.trim();
+      const notice = document.getElementById('notice').value.trim();
+      const form = document.getElementById('formLink').value.trim();
+
+      if (!title || !desc || !lastDate || !notice || !form) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      const events = JSON.parse(localStorage.getItem('nccEvents')) || [];
+      events.push({ title, desc, lastDate, notice, form });
+      localStorage.setItem('nccEvents', JSON.stringify(events));
+
+      closeForm();
+      loadEvents();
+      alert("Event added successfully!");
+    }
+
+    function deleteEvent(index) {
+      const events = JSON.parse(localStorage.getItem('nccEvents')) || [];
+      events.splice(index, 1);
+      localStorage.setItem('nccEvents', JSON.stringify(events));
+      loadEvents();
+      alert("Event deleted successfully!");
+    }
+
+    window.onload = loadEvents;
+  </script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CampusNotify - Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+  body{background:#f3f4f3;color:#333;}
+  
+  /* Top Banner */
+  .top-banner{background:#e4fceb;padding:20px;border-radius:10px;margin:15px;}
+  .profile-top{display:flex;align-items:center;gap:20px;}
+  .profile-top img{border-radius:50%;width:120px;height:120px;border:3px solid #e4fceb;}
+  .profile-name{display:flex;align-items:center;gap:10px;}
+  .small-avatar{width:32px;height:32px;border-radius:50%;border:2px solid #2d6586;}
+  .profile-info p{font-size:14px;color:#555;margin-bottom:10px;}
+  .stats{display:flex;gap:20px;flex-wrap:wrap;margin-top:10px;}
+  .stats .stat{display:flex;flex-direction:column;align-items:flex-start;}
+  #stars{font-size:20px;color:#4caf50;margin-bottom:4px;}
+  .progress-bar{width:100%;height:8px;background:#e4fceb;border-radius:8px;overflow:hidden;margin-bottom:2px;}
+  .progress-fill{height:100%;background:linear-gradient(90deg,#b2f5c0,#4caf50);border-radius:8px;}
+
+  /* Coding Profiles */
+  .coding-profiles{padding:20px;margin:15px;background:#fff;border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,0.1);}
+  .coding-profiles h2{margin-bottom:15px;color:#333;}
+  .coding-cards{display:flex;flex-wrap:wrap;gap:15px;}
+  .coding-card{flex:1 1 200px;background:#f3f6f4;padding:15px;border-radius:10px;box-shadow:0 4px 6px rgba(0,0,0,0.1);text-align:center;transition:0.3s;}
+  .coding-card i{font-size:28px;color:#4caf50;margin-bottom:10px;display:block;}
+  .coding-card h3{margin-bottom:5px;color:#333;}
+  .coding-card p{color:#555;font-size:14px;}
+  .coding-card:hover{transform:translateY(-5px);box-shadow:0 8px 15px rgba(0,0,0,0.15);}
+
+  /* Tabs */
+  .main-content{padding:20px;margin:15px;background:#fff;border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,0.1);}
+  .tabs{display:flex;margin-bottom:15px;}
+  .tab-btn{flex:1;padding:10px;cursor:pointer;background:#e4fceb;border:none;border-radius:5px 5px 0 0;margin-right:5px;font-weight:600;transition:0.3s;}
+  .tab-btn.active{background:#4caf50;color:#fff;}
+  .tab-content{display:none;background:#e4fceb;padding:15px;border-radius:0 5px 5px 5px;}
+  .tab-content.active{display:block;}
+
+  /* Event Tabs */
+  .event-tabs{display:flex;margin-bottom:10px;}
+  .event-tab{flex:1;padding:5px;cursor:pointer;background:#e4fceb;border:none;margin-right:3px;border-radius:5px 5px 0 0;font-size:14px;transition:0.3s;}
+  .event-tab.active{background:#4caf50;color:#fff;}
+
+  .events-container, .achievements-container, .skills-container{display:flex;flex-wrap:wrap;gap:10px;}
+
+  /* Cards */
+  .event-card, .achievement-card{background:#f3f6f4;padding:15px;border-radius:10px;width:calc(50% - 10px);display:flex;flex-direction:column;align-items:flex-start;gap:5px;box-shadow:0 2px 4px rgba(0,0,0,0.1);transition:0.3s;}
+  .event-card:hover, .achievement-card:hover{transform:translateY(-3px);box-shadow:0 6px 12px rgba(0,0,0,0.15);}
+  .event-card i, .achievement-card i{color:#4caf50;margin-bottom:5px;font-size:20px;}
+
+  /* Skills */
+  .skills-container .skill-tag{background:#4caf50;color:#fff;padding:5px 12px;border-radius:20px;font-size:14px;display:flex;align-items:center;gap:5px;transition:0.3s;}
+  .skills-container .skill-tag:hover{background:#388e3c;}
+</style>
+</head>
+<body>
+
+<!-- Top Banner / Stats -->
+<div class="top-banner">
+  <div class="profile-top">
+    <img src="thub.png" alt="Profile Picture">
+    <div class="profile-info">
+      <div class="profile-name">
+        <h1>Muchhu Sai Harshitha</h1>
+      </div>
+      <p>Aditya Engineering College | CSE | 3rd Year</p>
+      <div class="stats">
+        <div class="stat">
+          <span>275</span> Points
+        </div>
+        <div class="stat">
+          <div id="stars">⭐⭐⭐☆☆</div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width:55%;"></div>
+          </div>
+          <small>Only 225 pts to next star ⭐</small>
+        </div>
+        <div class="stat">
+          Level 3
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Coding Profiles Section -->
+<div class="coding-profiles">
+  <h2>Coding Profiles</h2>
+  <div class="coding-cards">
+    <div class="coding-card leetcode">
+      <i class="fab fa-code"></i>
+      <h3>LeetCode</h3>
+      <p>450 Problems Solved</p>
+    </div>
+    <div class="coding-card codechef">
+      <i class="fas fa-star"></i>
+      <h3>CodeChef</h3>
+      <p>1620 Rating</p>
+    </div>
+    <div class="coding-card codeforces">
+      <i class="fas fa-trophy"></i>
+      <h3>Codeforces</h3>
+      <p>1780 Rating</p>
+    </div>
+    <div class="coding-card hackerrank">
+      <i class="fas fa-medal"></i>
+      <h3>HackerRank</h3>
+      <p>12 Badges</p>
+    </div>
+  </div>
+</div>
+
+<!-- Main Content Tabs -->
+<div class="main-content">
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="events">My Events</button>
+    <button class="tab-btn" data-tab="achievements">Achievements</button>
+    <button class="tab-btn" data-tab="skills">Skills & Interests</button>
+  </div>
+
+  <!-- Tab Contents -->
+  <div class="tab-content active" id="events">
+    <div class="event-tabs">
+      <button class="event-tab active">Hackathons</button>
+      <button class="event-tab">Cultural</button>
+      <button class="event-tab">Sports</button>
+      <button class="event-tab">Clubs</button>
+      <button class="event-tab">Internships</button>
+    </div>
+    <div class="events-container">
+      <div class="event-card">
+        <i class="fas fa-laptop-code"></i>
+        <h4>AI Hackathon 2025</h4>
+        <p>Status: Registered</p>
+        <p>Points: 50</p>
+      </div>
+      <div class="event-card">
+        <i class="fas fa-robot"></i>
+        <h4>Robotics Hackathon</h4>
+        <p>Status: Completed</p>
+        <p>Points: 100</p>
+      </div>
+      <div class="event-card">
+        <i class="fas fa-code"></i>
+        <h4>Coding Marathon</h4>
+        <p>Status: Upcoming</p>
+        <p>Points: 50</p>
+      </div>
+      <div class="event-card">
+        <i class="fas fa-network-wired"></i>
+        <h4>Networking Hackathon</h4>
+        <p>Status: Registered</p>
+        <p>Points: 50</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="achievements">
+    <div class="achievements-container">
+      <div class="achievement-card"><i class="fas fa-trophy"></i> Hackathon Winner</div>
+      <div class="achievement-card"><i class="fas fa-medal"></i> Cultural Fest Winner</div>
+      <div class="achievement-card"><i class="fas fa-certificate"></i> Summer Internship Certificate</div>
+      <div class="achievement-card"><i class="fas fa-award"></i> Robotics Trophy</div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="skills">
+    <div class="skills-container">
+      <div class="skill-tag"><i class="fas fa-code"></i> Web Dev</div>
+      <div class="skill-tag"><i class="fas fa-robot"></i> AI/ML</div>
+      <div class="skill-tag"><i class="fas fa-music"></i> Music</div>
+      <div class="skill-tag"><i class="fas fa-futbol"></i> Sports</div>
+      <div class="skill-tag"><i class="fas fa-network-wired"></i> Networking</div>
+      <div class="skill-tag"><i class="fas fa-paint-brush"></i> Design</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Tab functionality
+  const tabButtons=document.querySelectorAll(".tab-btn");
+  tabButtons.forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      document.querySelector(".tab-btn.active").classList.remove("active");
+      btn.classList.add("active");
+      document.querySelector(".tab-content.active").classList.remove("active");
+      document.getElementById(btn.dataset.tab).classList.add("active");
+    });
+  });
+
+  const eventTabButtons=document.querySelectorAll(".event-tab");
+  eventTabButtons.forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      document.querySelector(".event-tab.active").classList.remove("active");
+      btn.classList.add("active");
+      // static content, so cards remain same
+    });
+  });
+</script>
+</body>
+</html>

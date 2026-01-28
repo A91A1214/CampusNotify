@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - CampusNotify</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+  <link rel="stylesheet" href="about.css" />
+  <link rel="stylesheet" href="pp-d.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background: light  rgb(243, 243, 243);
+      margin: 0;
+      padding: 0;
+      color: #302a2a;
+    }
+
+    .section {
+      padding: 6px 6px;
+      max-width: 1000px;
+      margin: auto;
+      
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      font-weight: bold;
+      color: #1a3e6e;   
+      text-transform: uppercase;
+      margin-top: 0px;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: #2f68b8;
+      margin-bottom: 10px;
+    }
+
+    p, li {
+      font-size: 1.1rem;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+    }
+
+    .section-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .section-flex .text, .section-flex .image {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .section-flex .image img {
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      object-fit: contain;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      padding: 20px 0;
+    }
+
+    .team-member {
+      background-color: #f1f5f9;
+      padding: 12px;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+    }
+
+    .team-member:hover {
+      transform: translateY(-5px);
+      background-color: #e2e8f0;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+
+    .feature-card img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .tech-stack span {
+      background: #fff;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .about-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .section-flex .image img {
+  max-width: 350px;
+  height: auto;
+  object-fit: contain;
+}
+
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-image img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .section-flex {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <!-- Top Heading -->
+  <section class="section">
+    <h1>ABOUT US</h1>
+  </section>
+
+  <!-- About CampusNotify -->
+  <!-- Updated Section: About CampusNotify with Card -->
+<section class="section">
+  <div class="about-card" style="display: flex; flex-wrap: wrap; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); padding: 20px; gap: 20px;">
+    <div class="about-text" style="flex: 1 1 60%; min-width: 300px;">
+      <h2>About CampusNotify</h2>
+      <p>CampusNotify is your personalized campus dashboard that keeps you updated with all the essential happenings—from internships and hackathons to club activities and fests. We simplify campus communication by bringing everything into one platform for both students and organizers.</p>
+      <p>It eliminates the chaos of WhatsApp groups and scattered info by delivering timely, organized updates that matter to you.</p>
+    </div>
+    <div class="about-image" style="flex: 1 1 35%; text-align: center;">
+      <img src="s1.jpg" alt="Campus overview illustration" style="width: 100%; max-width: 350px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); object-fit: contain;"/>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Our Mission -->
+  <section class="section">
+    <h2>Our Mission</h2>
+    <p>We strive to empower students by ensuring no opportunity goes unnoticed. Our mission is to bridge the communication gap between event organizers and students through a tech-savvy, minimalistic, and real-time solution. We want to build a culture where students are involved, informed, and inspired to participate in both academic and extracurricular growth.</p>
+  </section>
+
+  <!-- Why CampusNotify -->
+ <!-- Updated Section: Why CampusNotify with Responsive Card -->
+<section class="section">
+  <div class="why-card" style="display: flex; flex-wrap: wrap; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); padding: 20px; gap: 20px;">
+    <div class="why-text" style="flex: 1 1 60%; min-width: 300px;">
+      <h2>Why CampusNotify?</h2>
+      <p>CampusNotify simplifies the way students connect with opportunities. Whether you're looking for internships, hackathons, sports events, or club activities, our platform ensures you're always informed and never left out.</p>
+      <ul>
+        <li>🔔 Real-time alerts for new opportunities across all categories</li>
+        <li>🎯 Smart filtering options by academic year, department, and event type</li>
+        <li>🔁 One-click registration to save your time and effort</li>
+        <li>📣 Amplifies visibility and reach for student-led initiatives and clubs</li>
+        <li>📱 Fully responsive design that works smoothly on all devices</li>
+        <li>🗓 Personalized dashboard with reminders for upcoming deadlines</li>
+      </ul>
+    </div>
+    <div class="why-image" style="flex: 1 1 35%; text-align: center;">
+      <img src="s2.avif" alt="Features showcase image" style="width: 100%; max-width: 350px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); object-fit: contain;"/>
+    </div>
+  </div>
+</section>
+
+  <!-- Our Team -->
+  <section class="section">
+    <h2>Our Team</h2>
+    <p>This project is brought to life by six enthusiastic students from Aditya Engineering College:</p>
+    <div class="team-grid">
+      <div class="team-member">Pravalika</div>
+      <div class="team-member">Ch. Madhuri</div>
+      <div class="team-member">M. Sai Harshitha</div>
+      <div class="team-member">G. Srija</div>
+      <div class="team-member">Lahari</div>
+      <div class="team-member">Suma</div>
+    </div>
+  </section>
+
+  <!-- Key Features -->
+  <section class="section">
+    <h2>Key Features</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <img src="bell.jpg" alt="Notify Icon" />
+        <h3>Instant Notifications</h3>
+        <p>Stay instantly updated with upcoming events and deadlines right from your dashboard.</p>
+      </div>
+      <div class="feature-card">
+        <img src="register.jpg" alt="Register Icon" />
+        <h3>Easy Registration</h3>
+        <p>Register for events in just one click with zero hassle.</p>
+      </div>
+      <div class="feature-card">
+        <img src="s3.jpg" alt="Organizer Icon" /> 
+        <h3>Organizer Contact</h3>
+        <p>Get in touch directly with event or club organizers for quick clarifications and registration help.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section">
+  <div class="how-it-works-card" style="display: flex; flex-wrap: wrap; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); padding: 20px; gap: 20px; align-items: center;">
+    <div class="how-text" style="flex: 1 1 60%; min-width: 300px;">
+      <h2>How It Works</h2>
+      <p>CampusNotify operates on a simple and efficient two-user system designed to eliminate confusion and improve engagement across campus:</p>
+      <ol>
+        <li><strong>Admins</strong> log in through their secure dashboard to post opportunities like internships, hackathons, events, and club announcements. They can categorize posts and add deadlines to automate visibility.</li>
+        <li><strong>Students</strong> can view these opportunities in real time, filter them based on interests, year, or branch, and register for them with a single click. They also receive notifications when deadlines are near or new posts are added.</li>
+      </ol>
+      <p>This streamlined system ensures both sides of the communication process stay connected, updated, and productive.</p>
+    </div>
+    <div class="how-image" style="flex: 1 1 35%; text-align: center;">
+      <img src="flowchart.png" alt="Flowchart" style="width: 100%; max-width: 350px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); object-fit: contain;"/>
+    </div>
+  </div>
+</section>
+  <!-- Tech Stack -->
+  <section class="section">
+    <h2>Tech Stack</h2>
+    <div class="tech-stack">
+      <span>HTML</span>
+      <span>CSS</span>
+      <span>JavaScript</span>
+    </div>
+  </section>
+
+  <!-- Contact & Feedback -->
+  <section class="section">
+    <h2>Contact & Feedback</h2>
+    <p>Have suggestions or want to collaborate? Reach out to us:</p>
+    <ul>
+      <li>Email: campusnotify@gmail.com</li>
+      <li>Instagram: @campusnotify</li>
+      <li>GitHub: github.com/campusnotify</li>
+    </ul>
+  </section>
+  <script>
+    function toggleMenu() {
+      const navList = document.querySelector(".links ul");
+      navList.classList.toggle("active");
+    }
+  </script>
+    <script src="pp-d.js"></script>
+        <script src="profile-d.js"></script>
+
+
+</body>
+</html>

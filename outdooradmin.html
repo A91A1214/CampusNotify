@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Technical Events</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      background: #ffffff;
+      min-height: 100vh;
+      color: #222;
+    }
+
+    header {
+      background-color: #2c3e50;
+      padding: 15px;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      padding: 20px;
+    }
+
+    #addEventBtn {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      padding: 10px 15px;
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .filter-bar input[type="text"] {
+      padding: 10px 15px;
+      width: 60%;
+      max-width: 400px;
+      border-radius: 20px;
+      border: 1px solid #aaa;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .filter-bar select {
+      padding: 10px 15px;
+      border-radius: 20px;
+      border: 1px solid #aaa;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      padding: 36px 10px;
+      min-height: 60vh;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      width: 100%;
+      max-width: 900px;
+    }
+.card, .box {
+  max-width: 300px;   
+  max-height: 250px;  
+}
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 22px 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      transition: box-shadow 0.2s, transform 0.2s;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 160px;
+      border: 1px solid #eaeaea;
+      position: relative;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+      transform: translateY(-4px);
+      border-color: #b3c6e6;
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      color: #222;
+      margin-bottom: 8px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .card p {
+      font-size: 15px;
+      color: #444;
+      line-height: 1.5;
+      margin-bottom: 18px;
+      font-weight: 400;
+    }
+
+    .card button {
+      padding: 8px 18px;
+      font-size: 15px;
+      font-weight: 500;
+      border: none;
+      border-radius: 6px;
+      margin: 4px 6px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .notice-btn {
+      background: #f2f9ff;
+      color: #1a3e6e;
+      border: 1px solid #b3c6e6;
+    }
+
+    .notice-btn:hover {
+      background: #1a3e6e;
+      color: #fff;
+      border-color: #1a3e6e;
+    }
+
+    .register-btn {
+      background: #e6f7ff;
+      color: #04641c;
+      border: 1px solid #b3c6e6;
+    }
+
+    .register-btn:hover {
+      background: #04641c;
+      color: #fff;
+      border-color: #04641c;
+    }
+
+    .close-card-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      color: red;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #noResultsMsg {
+      display:none;
+      color:#e74c3c;
+      font-weight:bold;
+      font-size:1em;
+      text-align:center;
+      margin-top:10px;
+    }
+
+    /* Popup overlay */
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    /* Popup form */
+    #eventForm {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    #eventForm h3 {
+      margin-top: 0;
+      text-align: center;
+    }
+
+    #eventForm input[type="text"], 
+    #eventForm textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 12px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    #eventForm button {
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 5px;
+    }
+
+    .close-popup {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Outdoor Sports</h1>
+  <button id="addEventBtn" onclick="showForm()">Add Event</button>
+
+  <div class="filter-bar">
+    <input type="text" id="searchInput" placeholder="🔍 Search by event name" onkeyup="filterEvents()" />
+    <select id="yearFilter" onchange="filterEvents()">
+      <option value="all">All Years</option>
+      <option value="1st">1st Year</option>
+      <option value="2nd">2nd Year</option>
+      <option value="3rd">3rd Year</option>
+      <option value="4th">4th Year</option>
+    </select>
+  </div>
+
+  <div id="noResultsMsg">No results found.</div>
+</header>
+
+<div class="container">
+  <div class="card-container" id="cardContainer">
+    <div class="card" data-year="all">
+      <span class="close-card-btn" onclick="removeCard(this)">×</span>
+      <h3>AI Quiz</h3>
+      <p>Participate in a fun and challenging AI quiz competition.</p>
+      <a href="./notice.pdf" target="_blank"><button class="notice-btn">Notice</button></a>
+      <a href="https://forms.office.com/" target="_blank"><button class="register-btn">Register</button></a>
+    </div>
+    <div class="card" data-year="all">
+      <span class="close-card-btn" onclick="removeCard(this)">×</span>
+      <h3>Coding Contest</h3>
+      <p>Show off your coding skills in this exciting competition.</p>
+      <a href="./notice.pdf" target="_blank"><button class="notice-btn">Notice</button></a>
+      <a href="https://forms.office.com/" target="_blank"><button class="register-btn">Register</button></a>
+    </div>
+  </div>
+</div>
+
+<!-- Popup Overlay + Event Form -->
+<div id="overlay">
+  <div id="eventForm">
+    <span class="close-popup" onclick="closeForm()">×</span>
+    <h3>Add Event</h3>
+    <input type="text" id="eventTitle" placeholder="Event Title" />
+    <textarea id="eventDesc" rows="3" placeholder="Event Description"></textarea>
+    <input type="text" id="eventNotice" placeholder="Notice URL" />
+    <input type="text" id="eventRegister" placeholder="Registration URL" />
+    <div style="text-align:right;">
+      <button id="submitEventBtn">Add</button>
+      <button id="cancelEventBtn" type="button">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const overlay = document.getElementById('overlay');
+  const eventForm = document.getElementById('eventForm');
+  const submitEventBtn = document.getElementById('submitEventBtn');
+  const cancelEventBtn = document.getElementById('cancelEventBtn');
+  const cardContainer = document.getElementById('cardContainer');
+
+  function showForm() {
+    overlay.style.display = 'flex';
+  }
+
+  function closeForm() {
+    overlay.style.display = 'none';
+    document.getElementById('eventTitle').value = '';
+    document.getElementById('eventDesc').value = '';
+    document.getElementById('eventNotice').value = '';
+    document.getElementById('eventRegister').value = '';
+  }
+
+  cancelEventBtn.onclick = closeForm;
+
+  submitEventBtn.onclick = () => {
+    const title = document.getElementById('eventTitle').value.trim();
+    const desc = document.getElementById('eventDesc').value.trim();
+    const notice = document.getElementById('eventNotice').value.trim();
+    const register = document.getElementById('eventRegister').value.trim();
+
+    if (title && desc && notice && register) {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.setAttribute('data-year', 'all');
+      card.innerHTML = `
+        <span class="close-card-btn" onclick="removeCard(this)">×</span>
+        <h3>${title}</h3>
+        <p>${desc}</p>
+        <a href="${notice}" target="_blank"><button class="notice-btn">Notice</button></a>
+        <a href="${register}" target="_blank"><button class="register-btn">Register</button></a>
+      `;
+      cardContainer.appendChild(card);
+      closeForm();
+    } else {
+      alert('Please fill all fields.');
+    }
+  };
+
+  function removeCard(btn){
+    btn.parentElement.remove();
+  }
+
+  function filterEvents(){
+    const searchInput = document.getElementById("searchInput").value.toLowerCase();
+    const selectedYear = document.getElementById("yearFilter").value;
+    const cards = document.querySelectorAll('.card-container .card');
+    let anyVisible = false;
+
+    cards.forEach(card => {
+      const title = card.querySelector('h3').innerText.toLowerCase();
+      const desc = card.querySelector('p').innerText.toLowerCase();
+      const year = card.getAttribute("data-year");
+
+      const matchesSearch = title.includes(searchInput) || desc.includes(searchInput);
+      const matchesYear = (selectedYear === "all" || year === selectedYear || year === "all");
+
+      if(matchesSearch && matchesYear){
+        card.style.display = '';
+        anyVisible = true;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    document.getElementById('noResultsMsg').style.display = anyVisible ? 'none' : 'block';
+  }
+</script>
+
+</body>
+</html>

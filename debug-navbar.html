@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Navbar | CampusNotify</title>
+    <link rel="stylesheet" href="common.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .debug-info {
+            margin: 100px 20px 20px;
+            padding: 20px;
+            background: #f0f0f0;
+            border-radius: 8px;
+        }
+
+        .debug-info h2 {
+            color: #003c3c;
+            margin-bottom: 15px;
+        }
+
+        .debug-info p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .icon-test {
+            font-size: 30px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="debug-info">
+        <h2>🔍 Navbar Debug Information</h2>
+
+        <h3>Icon Tests:</h3>
+        <p>Bell Icon: <i class="fa-regular fa-bell icon-test"></i></p>
+        <p>Profile Icon: <i class="fa-regular fa-circle-user icon-test"></i></p>
+        <p>Solid Bell: <i class="fas fa-bell icon-test"></i></p>
+        <p>Solid User: <i class="fas fa-user icon-test"></i></p>
+
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Look at the TOP of this page - you should see the navbar</li>
+            <li>On the RIGHT side of the navbar, you should see:
+                <ul>
+                    <li>🔔 Bell icon (notification)</li>
+                    <li>👤 User icon (profile)</li>
+                </ul>
+            </li>
+            <li>If you DON'T see these icons, the Font Awesome library might not be loading</li>
+            <li>Click the profile icon to see the dropdown with logout</li>
+        </ol>
+
+        <div id="navbar-check" style="margin-top: 20px; padding: 15px; background: #fff; border-radius: 5px;">
+            <p><strong>Navbar Status:</strong> <span id="status">Checking...</span></p>
+        </div>
+    </div>
+
+    <script src="common.js"></script>
+    <script>
+        setTimeout(() => {
+            const navbar = document.querySelector('.navbar');
+            const profileMenu = document.querySelector('.profile-menu');
+            const notification = document.querySelector('.notification');
+
+            let status = '';
+            if (navbar) {
+                status += '✅ Navbar found<br>';
+            } else {
+                status += '❌ Navbar NOT found<br>';
+            }
+
+            if (notification) {
+                status += '✅ Notification bell found<br>';
+            } else {
+                status += '❌ Notification bell NOT found<br>';
+            }
+
+            if (profileMenu) {
+                status += '✅ Profile menu found<br>';
+            } else {
+                status += '❌ Profile menu NOT found<br>';
+            }
+
+            document.getElementById('status').innerHTML = status;
+        }, 500);
+    </script>
+</body>
+
+</html>

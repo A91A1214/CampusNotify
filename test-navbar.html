@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Navbar | CampusNotify</title>
+    <link rel="stylesheet" href="common.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/all.min.css">
+    <style>
+        .test-content {
+            padding: 100px 20px 20px;
+            text-align: center;
+        }
+
+        .test-content h1 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .logout-btn-manual {
+            background: #ff4444;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .logout-btn-manual:hover {
+            background: #cc0000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="test-content">
+        <h1>Navbar Test Page</h1>
+        <p>The navbar should appear at the top of this page.</p>
+        <p>Look for the profile icon on the right side of the navbar.</p>
+        <p>Click the profile icon to see the dropdown with logout option.</p>
+
+        <hr style="margin: 40px 0;">
+
+        <h2>Manual Logout Button</h2>
+        <p>If you can't see the navbar, use this button to logout:</p>
+        <button class="logout-btn-manual" onclick="manualLogout()">🚪 Logout Manually</button>
+
+        <hr style="margin: 40px 0;">
+
+        <h3>Debug Info:</h3>
+        <p id="login-status"></p>
+    </div>
+
+    <script src="common.js"></script>
+    <script>
+        function manualLogout() {
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('currentUser');
+            alert('Logged out successfully!');
+            window.location.href = 'login.html';
+        }
+
+        // Show login status
+        setTimeout(() => {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            document.getElementById('login-status').innerHTML =
+                `Login Status: <strong>${isLoggedIn === 'true' ? 'Logged In ✅' : 'Not Logged In ❌'}</strong>`;
+        }, 500);
+    </script>
+</body>
+
+</html>

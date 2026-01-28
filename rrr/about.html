@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - CampusNotify</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdf8f3;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #a2d4ec, #d0f0f6, #ffffff, #dcedf2);
+      background-size: 400% 400%;
+      animation: waveBg 15s ease infinite;
+      z-index: -1;
+      opacity: 0.4;
+    }
+
+    @keyframes waveBg {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color:#003c3c;
+      padding: 15px 30px;
+      color: white;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      flex-wrap: wrap;
+    }
+
+    .logopart {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 28px;
+      color: white;
+      cursor: pointer;
+      position: absolute;
+      right: 20px;
+      top: 15px;
+    }
+
+    .links {
+      flex-grow: 1;
+    }
+
+    .links ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .links ul li {
+      position: relative;
+    }
+
+    .links ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    .links ul li a:hover {
+      color: pink;
+      text-decoration: underline;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #004c4c;
+      min-width: 160px;
+      top: 100%;
+      left: 0;
+      z-index: 999;
+      border-radius: 6px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .dropdown-content a {
+      padding: 10px 15px;
+      color: white;
+      text-decoration: none;
+      display: block;
+      font-size: 14px;
+    }
+
+    .dropdown-content a:hover {
+      background-color: grey;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .login {
+      display: flex;
+      gap: 10px;
+    }
+
+    .login .btn {
+      padding: 6px 14px;
+      background-color: #6a0dad;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background-color: rgb(240, 91, 36);
+    }
+
+    .section {
+      max-width: 1000px;
+      margin: 100px auto 30px;
+      padding: 50px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .section h2 {
+      color: #0077b6;
+      margin-bottom: 15px;
+      border-left: 4px solid #48cae4;
+      padding-left: 10px;
+    }
+
+    .section p {
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+
+    .team-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .team-member {
+      background-color: #f1f5f9;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+      flex: 1 1 calc(33.33% - 20px);
+      text-align: center;
+      font-weight: 500;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    @keyframes fadeInUp {
+      0% {opacity: 0; transform: translateY(20px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: rgb(47, 110, 130);
+      color: white;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 1000px) {
+      .hamburger {
+        display: block;
+      }
+
+      .links ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background-color: #7851A9;
+        padding: 15px;
+        border-radius: 10px;
+        z-index: 1001;
+      }
+
+      .links ul.show {
+        display: flex;
+      }
+
+      .login {
+        display: none;
+      }
+
+      .team-list {
+        flex-direction: column;
+      }
+
+      .section {
+        margin: 80px 10px 30px;
+        padding: 20px;
+      }
+
+      .section h2 {
+        font-size: 20px;
+      }
+
+      .section p, .section ul li {
+        font-size: 15px;
+        line-height: 1.5;
+      }
+
+      .team-member {
+        flex: 1 1 100%;
+      }
+
+      footer {
+        font-size: 14px;
+        padding: 15px;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: none;
+      }
+
+      .dropdown.open .dropdown-content {
+        display: block;
+        position: relative;
+        background-color: #6a0dad;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="logopart">
+      <img src="campus.png" class="icon" alt="Campus Logo" />
+      <h2 class="logo">CampusNotify</h2>
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+
+    <div class="links">
+      <ul id="navList">
+        <li><a href="#">Home</a></li>
+        <li class="dropdown" onclick="toggleDropdown(this)">
+          <a href="#">Opportunities</a>
+          <div class="dropdown-content">
+            <a href="hackthons.html">Hackathons</a>
+            <a href="#">Internships</a>
+            <a href="campus1.html">Events</a>
+            <a href="Sport.html">Sports</a>
+          </div>
+        </li>
+        <li><a href="nss.html">Communities</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="conatct.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- <div class="login">
+      <a href="#" class="btn">Login</a>
+      <a href="#" class="btn">Signup</a>
+    </div> -->
+  </div>
+
+  <!-- Content Sections -->
+  <div class="section">
+    <h2>About CampusNotify</h2>
+    <p>CampusNotify is a centralized platform developed by students of Aditya Engineering College to keep the student community informed about all campus-related opportunities like hackathons, internships, college events, and club activities.</p>
+  </div>
+
+  <div class="section">
+    <h2>Our Mission</h2>
+    <p>To bridge the communication gap between students and organizers by offering a transparent and accessible notification system for every campus activity and opportunity.</p>
+  </div>
+
+  <div class="section">
+    <h2>Meet the Team</h2>
+    <div class="team-list">
+      <div class="team-member">M. Sai Harshitha</div>
+      <div class="team-member">Ch. Madhuri</div>
+      <div class="team-member">Pravalika</div>
+      <div class="team-member">Srija</div>
+      <div class="team-member">Lahari</div>
+      <div class="team-member">Suma</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Our College</h2>
+    <p>We proudly represent <strong>Aditya Engineering College</strong>, a hub of innovation and talent. Our platform reflects the vibrant campus culture and aims to empower every student with timely information.</p>
+  </div>
+
+  <div class="section">
+    <h2>Campus Clubs</h2>
+    <p>CampusNotify keeps you informed about the latest updates on internships, hackathons, technical and cultural events, and sports. It also covers Rotaract Club, NSS, NCC, and the Red Cross Society.</p>
+  </div>
+
+  <div class="section">
+    <h2>Technologies Used</h2>
+    <ul>
+      <li><strong>HTML</strong> - for structuring web content</li>
+      <li><strong>CSS</strong> – for styling and layout</li>
+      <li><strong>JavaScript</strong> – for interactivity and smooth animations</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Vision for the Future</h2>
+    <p>We aim to integrate login functionality, organizer dashboards, event registration analytics, and mobile responsiveness in future versions of CampusNotify to serve students better and smarter.</p>
+  </div>
+
+  <footer>
+    &copy; 2025 CampusNotify Team – Aditya Engineering College
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navList = document.getElementById("navList");
+      navList.classList.toggle("show");
+    }
+
+    function toggleDropdown(element) {
+      if (window.innerWidth <= 1000) {
+        element.classList.toggle("open");
+      }
+    }
+  </script>
+</body>
+</html>

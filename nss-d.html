@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CampusNotify - Clubs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="pp-d.css" />
+ <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+</head>
+<style> * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body, html {
+      font-family: Arial, sans-serif;
+      background-color: #E4FCEB;
+    }   
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #003c3c;
+      padding: 15px 40px;
+      color: white;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+    }
+    .logopart {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .icon {
+      width: 40px;
+      height: 40px;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
+    .links ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+    .links ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      font-size: 16px;
+    }
+    .links ul li a:hover {
+      color: pink;
+      text-decoration: underline;
+    }
+   .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #004c4c;
+      min-width: 160px;
+      top: 100%;
+      left: 0;
+      z-index: 999;
+      border-radius: 6px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .dropdown-content a {
+      padding: 10px 15px;
+      color: white;
+      text-decoration: none;
+      display: block;
+      font-size: 14px;
+    }
+    .dropdown-content a:hover {
+      background-color: #016c6c;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .links ul li { position: relative; }
+
+    .login .btn {
+      padding: 6px 14px;
+      background-color: #6a0dad;
+      color: white;
+      border-radius: 5px;
+      margin-left: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background-color: rgb(240, 91, 36);
+      color: white;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 26px;
+      color: white;
+      cursor: pointer;
+    }
+
+    
+    @media (max-width: 1000px) {
+      .links ul {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 15px;
+        border-radius: 8px;
+      }
+
+      .links ul.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .login {
+        display: none;
+      }
+    }
+    .clubs-container {
+      width: 100%;
+      min-height: 100svh;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: flex-start;
+      padding: 20px;
+      background-color: #E4FCEB;
+      margin-top: 70px;
+    }
+
+    .head {
+      width: 100%;
+      background-color: rgb(247, 247, 216);
+      text-align: center;
+      padding: 20px 0;
+      font-size: 24px;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nccblock, .nssblock, .rotaract, .youthredcross {
+      flex: 1 1 45%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 180px;
+      border: 1px solid #999;
+      border-radius: 10px;
+      margin: 15px;
+      background-color: #f0faf1;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 10px;
+    }
+
+    .nccblock:hover, .nssblock:hover, .rotaract:hover, .youthredcross:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+    .club-left {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    .club-left img {
+      width: 90%;
+      max-width: 150px;
+      max-height: 100px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .club-right {
+      flex: 1;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .club-right h2, .club-right h3 {
+      font-size: 22px;
+      margin-bottom: 5px;
+      color: #222;
+    }
+
+    .club-right p {
+      color: #555;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .club-btn {
+      padding: 10px 15px;
+      background-color: #12a838;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: fit-content;
+      transition: background-color 0.3s ease;
+    }
+    .club-btn:hover {
+      background-color: #09581d;
+    }
+    @media (max-width: 768px) {
+      .nccblock, .nssblock, .rotaract, .youthredcross {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .club-left img {
+        max-width: 120px;
+        margin-bottom: 10px;
+      }
+
+      .club-right {
+        padding: 10px 0;
+      }
+
+      .club-btn {
+        margin-left: 0;
+      }
+
+      .head {
+        font-size: 20px;
+        padding: 15px 0;
+      }
+    }</style>
+<body>
+    <div id="navbar"></div>
+
+  <div class="clubs-container">
+    <div class="head">Student Leadership & Service Clubs</div>
+
+    <div class="nccblock">
+      <div class="club-left"><img src="red11.jpg" alt="NCC Logo"></div>
+      <div class="club-right">
+        <h3>NCC</h3>
+        <p>Instills discipline, unity, and leadership through armed forces training.</p>
+        <a href="n1admin.html"><button class="club-btn">Enter</button></a>
+      </div>
+    </div>
+
+    <div class="nssblock">
+      <div class="club-left"><img src="red12.jpg" alt="NSS Logo"></div>
+      <div class="club-right">
+        <h2>NSS</h2>
+        <p>Promotes social responsibility and community service among students.</p>
+        <a href="n2admin.html"><button class="club-btn">Enter</button></a>
+      </div>
+    </div>
+
+    <div class="rotaract">
+      <div class="club-left"><img src="red13.jpg" alt="Rotaract Logo"></div>
+      <div class="club-right">
+        <h2>Rotaract</h2>
+        <p>Develops professional skills and leadership through service and fellowship.</p>
+        <a href="n3admin.html"><button class="club-btn">Enter</button></a>
+      </div>
+    </div>
+
+    <div class="youthredcross">
+      <div class="club-left"><img src="red14.jpg" alt="Youth Red Cross Logo"></div>
+      <div class="club-right">
+        <h2>Youth Red Cross</h2>
+        <p>Trains students in health, service, and disaster response initiatives.</p>
+        <a href="n4admin.html"><button class="club-btn">Enter</button></a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const navList = document.querySelector(".links ul");
+      navList.classList.toggle("active");
+    }
+  </script>
+    <script src="pp-d.js"></script>
+        <script src="profile-d.js"></script>
+
+</body>
+</html>
+
+

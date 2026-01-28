@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hackathons page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="hackathon.css" />
+    <link rel="stylesheet" href="pp-d.css" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+
+</head>
+<body>
+  <div id="navbar"></div>
+  <div>
+    <img src="pravallika.jpg" alt="image" width="100%" height="500px"/> 
+  </div>
+  <div class="search" style="display: flex; justify-content: center; align-items: center; gap: 20px; margin: 30px;">
+  <input type="text" id="searchInput" placeholder="🔍 Search by hackathon name or description" onkeyup="filterHackathons()" style="padding: 10px; width: 900px; font-size: 16px;" />
+  <a href="addHackathon.html">
+    <button style="padding: 10px 20px; font-size: 16px; background-color: #003C3C; color: white; border: none; border-radius: 5px; cursor: pointer;">
+      Add Hackathon
+    </button>
+  </a>
+</div>
+  <div id="noResults" style="text-align:center; color: red; font-weight: bold; display: none;margin:30px;">
+  No  results found.
+  </div>
+  <div class="totalcards">
+    <div class="card">
+        <img src="hackrx.jpg" alt="image" width="100%" height="200px"/>
+        <h3>HackRx 6.0</h3>
+        <p><i class="fa-solid fa-building-circle-check"></i> <b>Company:</b> Bajaj Finserv Health Limited<br/><b><i class="fa-solid fa-people-group"></i> Team Size:</b> 2 - 5 Members</p>
+        <p><b>Registration Start:</b> 23-07-2025<br/><b>Registration End:</b> 09-08-2025</p>
+        <a href="https://unstop.com/hackathons/hackrx-60-bajaj-finserv-1514382?ref=TPO"><button class="Registrationbutton" type="submit">Register <i class="fa-solid fa-arrow-right"></i></button></a>
+    </div>
+    <div class="card">
+        <img src="loreal.jpg" alt="image" width="100%" height="200px"/>
+        <h3>L'Oréal Sustainability Challenge 2025</h3>
+        <p><i class="fa-solid fa-building-circle-check"></i> <b>Company:</b> L'Oréal<br/><b><i class="fa-solid fa-people-group"></i> Team Size:</b> 3 Members</p>
+        <p><b>Registration Start:</b> 26-07-2025<br/><b>Registration End:</b> 11-08-2025</p>
+        <a href="https://unstop.com/competitions/loreal-sustainability-challenge-2025-loreal-1504673?ref=TPO"><button class="Registrationbutton" type="submit">Register <i class="fa-solid fa-arrow-right"></i></button></a>
+    </div>
+    <div class="card">
+        <img src="./cyfuture.jpg" alt="image" width="100%" height="200px"/>
+        <h3>Cyfuture AI Hackathon 1.0</h3>
+        <p><i class="fa-solid fa-building-circle-check"></i> <b>Company:</b> Cyfuture India<br/><b><i class="fa-solid fa-people-group"></i> Team Size:</b> 2 - 5 Members</p>
+        <p><b>Registration Start:</b> 3-07-2025<br/><b>Registration End:</b> 12-08-2025</p>
+        <a href="https://unstop.com/hackathons?oppstatus=open&domain=2&usertype=students&searchTerm=cyfuture"><button class="Registrationbutton" type="submit">Register <i class="fa-solid fa-arrow-right"></i></button></a>
+    </div>
+    <div class="card">
+        <img src="./ANDI.jpg" alt="image" width="100%" height="200px"/>
+        <h3>ANDi Software Solutions Hackathon</h3>
+        <p><i class="fa-solid fa-building-circle-check"></i> <b>Company:</b> ANDi Software Solutions <br/><b><i class="fa-solid fa-people-group"></i> Team Size:</b> Individual Participation</p>
+        <p><b>Registration Start:</b> 05-07-2025<br/><b>Registration End:</b> 31-08-2025</p>
+        <a href="https://unstop.com/hackathons/ultimate-coding-showdown-andi-software-solutions-hackathon-andi-software-solutions-1512943"><button class="Registrationbutton" type="submit">Register <i class="fa-solid fa-arrow-right"></i></button></a>
+    </div>
+    <div class="card">
+        <img src="./hackloop.jpg" alt="image" width="100%" height="200px"/>
+        <h3>HackLoop 2025</h3>
+        <p><i class="fa-solid fa-building-circle-check"></i> <b>Company:</b> Dr. APJ Abdul Kalam University <br/><b><i class="fa-solid fa-people-group"></i> Team Size:</b> 2 - 4 Members</p>
+        <p><b>Registration Start:</b> 25-07-2025<br/><b>Registration End:</b> 18-08-2025</p>
+        <a href="https://unstop.com/hackathons/hackloop-2025-dr-apj-abdul-kalam-technical-university-1528453"><button class="Registrationbutton" type="submit">Register <i class="fa-solid fa-arrow-right"></i></button></a>
+    </div>
+    <div class="card">
+        <img src="./technova.jpg" alt="image" width="100%" height="200px"/>
+        <h3>TechNova: Igniting Brilliance</h3>
+        <p><i class="fa-solid fa-building-circle-check"></i> <b>Company:</b> Enterprise System <br/><b><i class="fa-solid fa-people-group"></i> Team Size:</b> 1 - 3 Members</p>
+        <p><b>Registration Start:</b> 24-07-2025<br/><b>Registration End:</b> 09-08-2025</p>
+        <a href="https://unstop.com/hackathons/technova-igniting-brilliance-season-2-enterprise-system-solutions-private-limited-1516154"><button class="Registrationbutton" type="submit">Register <i class="fa-solid fa-arrow-right"></i></button></a>
+    </div>
+      </div>
+  <script>
+     function toggleMenu() {
+      const navList = document.querySelector(".links ul");
+      navList.classList.toggle("active");
+    }
+
+  function filterHackathons() {
+    const input = document.getElementById("searchInput").value.toLowerCase();
+    const cards = document.getElementsByClassName("card");
+    const noResults = document.getElementById("noResults");
+
+    let anyVisible = false;
+
+    for (let i = 0; i < cards.length; i++) {
+      const title = cards[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+      const description = cards[i].getElementsByTagName("p")[0].innerText.toLowerCase();
+
+      if (title.includes(input) || description.includes(input)) {
+        cards[i].style.display = "";
+        anyVisible = true;
+      } else {
+        cards[i].style.display = "none";
+      }
+    }
+
+    // Show "No Results" message if nothing is visible
+    noResults.style.display = anyVisible ? "none" : "block";
+  }
+  
+  window.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.totalcards');
+    const hackathons = JSON.parse(localStorage.getItem("hackathons")) || [];
+
+    hackathons.forEach(hack => {
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      card.innerHTML = `
+        <img src="${hack.image}" alt="Hackathon Image" width="100%" height="200px"/>
+        <h3>${hack.title}</h3>
+        <p><i class="fa-solid fa-building-circle-check"></i> <b>Company:</b> ${hack.company}<br/>
+        <b><i class="fa-solid fa-people-group"></i> Team Size:</b> ${hack.teamSize}</p>
+        <p><b>Registration Start:</b> ${hack.startDate}<br/>
+        <b>Registration End:</b> ${hack.endDate}</p>
+        <a href="${hack.link}" target="_blank">
+          <button class="Registrationbutton" type="submit">
+            Register <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </a>
+      `;
+
+      container.appendChild(card);
+    });
+  });
+</script>
+ <script>
+    function toggleMenu() {
+      const navList = document.querySelector(".links ul");
+      navList.classList.toggle("active");
+    }
+  </script>
+    <script src="pp-d.js"></script>
+        <script src="profile-d.js"></script>
+</body>
+</html>

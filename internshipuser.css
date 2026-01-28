@@ -1,0 +1,182 @@
+body, html {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #fdf8f3;
+  color: #2c3e50;
+}
+
+.internship-header-wrapper {
+  position: relative;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.internship-header-wrapper h2 {
+  font-size: 28px;
+  color: #2c3e50;
+  margin:0px;
+}
+
+.form-container {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.form-container button {
+  padding: 10px 20px;
+  background-color: #2c7a7b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.form-container button a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+}
+
+.form-container button:hover {
+  background-color: #457b9d;
+}
+
+.internship-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 40px;
+}
+
+.internship-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease;
+  position: relative;
+  padding-top: 0;
+}
+
+.internship-card:hover {
+  transform: translateY(-5px);
+}
+
+.banner-wrap {
+  height: 150px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  top:2px;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.company-logo-box {
+  width: 70px;
+  height: 70px;
+  background-color: white;
+  padding: 8px;
+  border-radius: 16px;
+  position: absolute;
+  top: 50px;
+  right: 0px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.company-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.internship-card h3 {
+  color: #2c7a7b;
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.internship-card p {
+  margin: 6px 0;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.apply-btn {
+  display: inline-block;
+  background: linear-gradient(to bottom right, #2c7a7b, #3fa7a9);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: 20px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.apply-btn:hover {
+  background: linear-gradient(to bottom right, #215a5c, #318e90);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.internship-card i {
+  margin-right: 8px;
+  color: #2c7a7b;
+  min-width: 16px;
+}
+
+.quote-box {
+  text-align: center;
+  background-color: #f0f4f8;
+  padding: 16px 24px;
+  margin: 20px auto 40px auto;
+  border-radius: 10px;
+  max-width: 700px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.quote-text {
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 500;
+  color: #333;
+ margin:0;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 20px;
+  color: #ff4d4f;
+  background: #ffffff;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  font-weight: bold;
+  transition: background 0.2s ease;
+  z-index: 10;
+}
+
+.delete-btn:hover {
+  background-color: #ffe6e6;
+}
