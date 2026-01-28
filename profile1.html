@@ -392,27 +392,6 @@
     </div>
   </div>
 
-  <script>
-    // Tab functionality
-    const tabButtons = document.querySelectorAll(".tab-btn");
-    tabButtons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        document.querySelector(".tab-btn.active").classList.remove("active");
-        btn.classList.add("active");
-        document.querySelector(".tab-content.active").classList.remove("active");
-        document.getElementById(btn.dataset.tab).classList.add("active");
-      });
-    });
-
-    const eventTabButtons = document.querySelectorAll(".event-tab");
-    eventTabButtons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        document.querySelector(".event-tab.active").classList.remove("active");
-        btn.classList.add("active");
-        // static content, so cards remain same
-      });
-    });
-  </script>
   <script src="pp.js"></script>
   <script src="profile.js"></script>
 </body>
