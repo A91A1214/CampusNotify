@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Technical Events</title>
+  <link rel="stylesheet" href="pp-d.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 
   <style>
@@ -81,16 +83,18 @@
       width: 100%;
       max-width: 900px;
     }
-.card, .box {
-  max-width: 300px;   
-  max-height: 250px;  
-}
+
+    .card,
+    .box {
+      max-width: 300px;
+      max-height: 250px;
+    }
 
     .card {
       background: #fff;
       border-radius: 10px;
       padding: 22px 16px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
       transition: box-shadow 0.2s, transform 0.2s;
       text-align: center;
       display: flex;
@@ -102,7 +106,7 @@
     }
 
     .card:hover {
-      box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.13);
       transform: translateY(-4px);
       border-color: #b3c6e6;
     }
@@ -169,20 +173,22 @@
     }
 
     #noResultsMsg {
-      display:none;
-      color:#e74c3c;
-      font-weight:bold;
-      font-size:1em;
-      text-align:center;
-      margin-top:10px;
+      display: none;
+      color: #e74c3c;
+      font-weight: bold;
+      font-size: 1em;
+      text-align: center;
+      margin-top: 10px;
     }
 
     /* Popup overlay */
     #overlay {
       display: none;
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: rgba(0, 0, 0, 0.5);
       justify-content: center;
       align-items: center;
@@ -196,7 +202,7 @@
       border-radius: 10px;
       max-width: 400px;
       width: 90%;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       position: relative;
     }
 
@@ -205,7 +211,7 @@
       text-align: center;
     }
 
-    #eventForm input[type="text"], 
+    #eventForm input[type="text"],
     #eventForm textarea {
       width: 100%;
       padding: 8px;
@@ -235,135 +241,139 @@
     }
   </style>
 </head>
+
 <body>
 
-<header>
-  <h1>Technical Events</h1>
-  <button id="addEventBtn" onclick="showForm()">Add Event</button>
+  <header>
+    <h1>Technical Events</h1>
+    <button id="addEventBtn" onclick="showForm()">Add Event</button>
 
-  <div class="filter-bar">
-    <input type="text" id="searchInput" placeholder="🔍 Search by event name" onkeyup="filterEvents()" />
-    <select id="yearFilter" onchange="filterEvents()">
-      <option value="all">All Years</option>
-      <option value="1st">1st Year</option>
-      <option value="2nd">2nd Year</option>
-      <option value="3rd">3rd Year</option>
-      <option value="4th">4th Year</option>
-    </select>
-  </div>
-
-  <div id="noResultsMsg">No results found.</div>
-</header>
-
-<div class="container">
-  <div class="card-container" id="cardContainer">
-    <div class="card" data-year="all">
-      <span class="close-card-btn" onclick="removeCard(this)">×</span>
-      <h3>AI Quiz</h3>
-      <p>Participate in a fun and challenging AI quiz competition.</p>
-      <a href="./notice.pdf" target="_blank"><button class="notice-btn">Notice</button></a>
-      <a href="https://forms.office.com/" target="_blank"><button class="register-btn">Register</button></a>
+    <div class="filter-bar">
+      <input type="text" id="searchInput" placeholder="🔍 Search by event name" onkeyup="filterEvents()" />
+      <select id="yearFilter" onchange="filterEvents()">
+        <option value="all">All Years</option>
+        <option value="1st">1st Year</option>
+        <option value="2nd">2nd Year</option>
+        <option value="3rd">3rd Year</option>
+        <option value="4th">4th Year</option>
+      </select>
     </div>
-    <div class="card" data-year="all">
-      <span class="close-card-btn" onclick="removeCard(this)">×</span>
-      <h3>Coding Contest</h3>
-      <p>Show off your coding skills in this exciting competition.</p>
-      <a href="./notice.pdf" target="_blank"><button class="notice-btn">Notice</button></a>
-      <a href="https://forms.office.com/" target="_blank"><button class="register-btn">Register</button></a>
-    </div>
-  </div>
-</div>
 
-<!-- Popup Overlay + Event Form -->
-<div id="overlay">
-  <div id="eventForm">
-    <span class="close-popup" onclick="closeForm()">×</span>
-    <h3>Add Event</h3>
-    <input type="text" id="eventTitle" placeholder="Event Title" />
-    <textarea id="eventDesc" rows="3" placeholder="Event Description"></textarea>
-    <input type="text" id="eventNotice" placeholder="Notice URL" />
-    <input type="text" id="eventRegister" placeholder="Registration URL" />
-    <div style="text-align:right;">
-      <button id="submitEventBtn">Add</button>
-      <button id="cancelEventBtn" type="button">Cancel</button>
+    <div id="noResultsMsg">No results found.</div>
+  </header>
+
+  <div class="container">
+    <div class="card-container" id="cardContainer">
+      <div class="card" data-year="all">
+        <span class="close-card-btn" onclick="removeCard(this)">×</span>
+        <h3>AI Quiz</h3>
+        <p>Participate in a fun and challenging AI quiz competition.</p>
+        <a href="./notice.pdf" target="_blank"><button class="notice-btn">Notice</button></a>
+        <a href="https://forms.office.com/" target="_blank"><button class="register-btn">Register</button></a>
+      </div>
+      <div class="card" data-year="all">
+        <span class="close-card-btn" onclick="removeCard(this)">×</span>
+        <h3>Coding Contest</h3>
+        <p>Show off your coding skills in this exciting competition.</p>
+        <a href="./notice.pdf" target="_blank"><button class="notice-btn">Notice</button></a>
+        <a href="https://forms.office.com/" target="_blank"><button class="register-btn">Register</button></a>
+      </div>
     </div>
   </div>
-</div>
 
-<script>
-  const overlay = document.getElementById('overlay');
-  const eventForm = document.getElementById('eventForm');
-  const submitEventBtn = document.getElementById('submitEventBtn');
-  const cancelEventBtn = document.getElementById('cancelEventBtn');
-  const cardContainer = document.getElementById('cardContainer');
+  <!-- Popup Overlay + Event Form -->
+  <div id="overlay">
+    <div id="eventForm">
+      <span class="close-popup" onclick="closeForm()">×</span>
+      <h3>Add Event</h3>
+      <input type="text" id="eventTitle" placeholder="Event Title" />
+      <textarea id="eventDesc" rows="3" placeholder="Event Description"></textarea>
+      <input type="text" id="eventNotice" placeholder="Notice URL" />
+      <input type="text" id="eventRegister" placeholder="Registration URL" />
+      <div style="text-align:right;">
+        <button id="submitEventBtn">Add</button>
+        <button id="cancelEventBtn" type="button">Cancel</button>
+      </div>
+    </div>
+  </div>
 
-  function showForm() {
-    overlay.style.display = 'flex';
-  }
+  <script>
+    const overlay = document.getElementById('overlay');
+    const eventForm = document.getElementById('eventForm');
+    const submitEventBtn = document.getElementById('submitEventBtn');
+    const cancelEventBtn = document.getElementById('cancelEventBtn');
+    const cardContainer = document.getElementById('cardContainer');
 
-  function closeForm() {
-    overlay.style.display = 'none';
-    document.getElementById('eventTitle').value = '';
-    document.getElementById('eventDesc').value = '';
-    document.getElementById('eventNotice').value = '';
-    document.getElementById('eventRegister').value = '';
-  }
+    function showForm() {
+      overlay.style.display = 'flex';
+    }
 
-  cancelEventBtn.onclick = closeForm;
+    function closeForm() {
+      overlay.style.display = 'none';
+      document.getElementById('eventTitle').value = '';
+      document.getElementById('eventDesc').value = '';
+      document.getElementById('eventNotice').value = '';
+      document.getElementById('eventRegister').value = '';
+    }
 
-  submitEventBtn.onclick = () => {
-    const title = document.getElementById('eventTitle').value.trim();
-    const desc = document.getElementById('eventDesc').value.trim();
-    const notice = document.getElementById('eventNotice').value.trim();
-    const register = document.getElementById('eventRegister').value.trim();
+    cancelEventBtn.onclick = closeForm;
 
-    if (title && desc && notice && register) {
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.setAttribute('data-year', 'all');
-      card.innerHTML = `
+    submitEventBtn.onclick = () => {
+      const title = document.getElementById('eventTitle').value.trim();
+      const desc = document.getElementById('eventDesc').value.trim();
+      const notice = document.getElementById('eventNotice').value.trim();
+      const register = document.getElementById('eventRegister').value.trim();
+
+      if (title && desc && notice && register) {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.setAttribute('data-year', 'all');
+        card.innerHTML = `
         <span class="close-card-btn" onclick="removeCard(this)">×</span>
         <h3>${title}</h3>
         <p>${desc}</p>
         <a href="${notice}" target="_blank"><button class="notice-btn">Notice</button></a>
         <a href="${register}" target="_blank"><button class="register-btn">Register</button></a>
       `;
-      cardContainer.appendChild(card);
-      closeForm();
-    } else {
-      alert('Please fill all fields.');
-    }
-  };
-
-  function removeCard(btn){
-    btn.parentElement.remove();
-  }
-
-  function filterEvents(){
-    const searchInput = document.getElementById("searchInput").value.toLowerCase();
-    const selectedYear = document.getElementById("yearFilter").value;
-    const cards = document.querySelectorAll('.card-container .card');
-    let anyVisible = false;
-
-    cards.forEach(card => {
-      const title = card.querySelector('h3').innerText.toLowerCase();
-      const desc = card.querySelector('p').innerText.toLowerCase();
-      const year = card.getAttribute("data-year");
-
-      const matchesSearch = title.includes(searchInput) || desc.includes(searchInput);
-      const matchesYear = (selectedYear === "all" || year === selectedYear || year === "all");
-
-      if(matchesSearch && matchesYear){
-        card.style.display = '';
-        anyVisible = true;
+        cardContainer.appendChild(card);
+        closeForm();
       } else {
-        card.style.display = 'none';
+        alert('Please fill all fields.');
       }
-    });
+    };
 
-    document.getElementById('noResultsMsg').style.display = anyVisible ? 'none' : 'block';
-  }
-</script>
+    function removeCard(btn) {
+      btn.parentElement.remove();
+    }
 
+    function filterEvents() {
+      const searchInput = document.getElementById("searchInput").value.toLowerCase();
+      const selectedYear = document.getElementById("yearFilter").value;
+      const cards = document.querySelectorAll('.card-container .card');
+      let anyVisible = false;
+
+      cards.forEach(card => {
+        const title = card.querySelector('h3').innerText.toLowerCase();
+        const desc = card.querySelector('p').innerText.toLowerCase();
+        const year = card.getAttribute("data-year");
+
+        const matchesSearch = title.includes(searchInput) || desc.includes(searchInput);
+        const matchesYear = (selectedYear === "all" || year === selectedYear || year === "all");
+
+        if (matchesSearch && matchesYear) {
+          card.style.display = '';
+          anyVisible = true;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      document.getElementById('noResultsMsg').style.display = anyVisible ? 'none' : 'block';
+    }
+  </script>
+
+  <script src="pp-d.js"></script>
+  <script src="profile-d.js"></script>
 </body>
+
 </html>

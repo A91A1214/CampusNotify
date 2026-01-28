@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Cultural Events</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+  <link rel="stylesheet" href="pp.css">
   <link rel="stylesheet" href="abc.css">
   <style>
     body {
@@ -58,7 +60,7 @@
       background: #fff;
       border-radius: 10px;
       padding: 22px 16px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
       transition: box-shadow 0.2s, transform 0.2s;
       text-align: center;
       display: flex;
@@ -69,7 +71,7 @@
     }
 
     .card:hover {
-      box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.13);
       transform: translateY(-4px);
       border-color: #b3c6e6;
     }
@@ -129,13 +131,16 @@
     }
   </style>
 </head>
-<body>
+
+<body style="padding-top: 70px;">
+  <div id="navbar"></div>
   <header>
-    <h1 style="color:white">Cultural Events</h1>
+    <h1 style="color:black">Cultural Events</h1>
 
     <div class="filter-bar">
-      <input type="text" id="searchInput" placeholder="🔍 Search by event name" onkeyup="filterEvents()" style="padding: 10px 15px; width: 60%; max-width: 400px; border-radius: 20px; border: 1px solid #aaa; font-size: 15px;" />
-      
+      <input type="text" id="searchInput" placeholder="🔍 Search by event name" onkeyup="filterEvents()"
+        style="padding: 10px 15px; width: 60%; max-width: 400px; border-radius: 20px; border: 1px solid #aaa; font-size: 15px;" />
+
       <select id="yearFilter" onchange="filterEvents()">
         <option value="all">All Years</option>
         <option value="1st">1st Year</option>
@@ -145,7 +150,9 @@
       </select>
     </div>
 
-    <div id="noResultsMsg" style="display:none; color:#e74c3c; font-weight:bold; font-size:1.2em; text-align:center; margin-top:10px;">No results found.</div>
+    <div id="noResultsMsg"
+      style="display:none; color:#e74c3c; font-weight:bold; font-size:1.2em; text-align:center; margin-top:10px;">No
+      results found.</div>
   </header>
 
   <div class="container">
@@ -208,7 +215,10 @@
 
       document.getElementById('noResultsMsg').style.display = anyVisible ? 'none' : 'block';
     }
-     renderEvents();
+    renderEvents();
   </script>
+  <script src="pp.js"></script>
+  <script src="profile.js"></script>
 </body>
+
 </html>
