@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Technical Events</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 
+  <link rel="stylesheet" href="pp.css">
   <link rel="stylesheet" href="technicalevents.css">
   <style>
     body {
@@ -23,7 +25,7 @@
       border-bottom: 1px solid #eaeaea;
     } */
 
-  h1 {
+    h1 {
       font-size: 2.1rem;
       margin: 0;
       font-weight: 700;
@@ -51,7 +53,7 @@
       background: #fff;
       border-radius: 10px;
       padding: 22px 16px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
       transition: box-shadow 0.2s, transform 0.2s;
       text-align: center;
       display: flex;
@@ -62,7 +64,7 @@
     }
 
     .card:hover {
-      box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.13);
       transform: translateY(-4px);
       border-color: #b3c6e6;
     }
@@ -122,16 +124,9 @@
     }
   </style>
 </head>
-<body>
-  <header>
-    <h1>Technical Events</h1>
 
-   <div class="search" style="display: flex; justify-content: center; margin-bottom: 30px;">
-          <!-- <i class="fas fa-search"></i> -->
-    <input type="text" id="searchInput" placeholder="🔍 Search by event name" onkeyup="filterEvents()" style="padding: 12px 20px; width: 80%; max-width: 500px; border-radius: 30px; border: 1px solid #aaa; outline: none; font-size: 16px;" />
-    <div id="noResultsMsg" style="display:none; color:#e74c3c; font-weight:bold; font-size:1.2em; text-align:center; margin-top:10px; outline: none;">No results found.</div>
-  </div>
-  </header>
+<body style="padding-top: 70px;">
+  <div id="navbar"></div>
 
   <div class="container">
     <div class="card-container">
@@ -144,7 +139,7 @@
       <div class="card">
         <h3>Coding Contest</h3>
         <p>Show off your coding skills in this exciting competition.</p>
-       <a href="./notice.pdf" target="_blank"><button class="notice-btn">Notice</button></a>
+        <a href="./notice.pdf" target="_blank"><button class="notice-btn">Notice</button></a>
         <a href="https://forms.office.com/" target="_blank"><button class="register-btn">Register</button></a>
       </div>
       <div class="card">
@@ -162,12 +157,12 @@
       <div class="card">
         <h3>Bug Bounty</h3>
         <p>Find and fix bugs in software systems and win prizes.</p>
-       <a href="./notice.pdf" target="_blank"><button class="notice-btn">Notice</button></a>
+        <a href="./notice.pdf" target="_blank"><button class="notice-btn">Notice</button></a>
         <a href="https://forms.office.com/" target="_blank"><button class="register-btn">Register</button></a>
       </div>
     </div>
   </div>
-    <script>
+  <script>
     function filterEvents() {
       const input = document.getElementById("searchInput");
       const filter = input.value.toLowerCase();
@@ -186,5 +181,8 @@
       document.getElementById('noResultsMsg').style.display = anyVisible ? 'none' : 'block';
     }
   </script>
+  <script src="pp.js"></script>
+  <script src="profile.js"></script>
 </body>
+
 </html>
